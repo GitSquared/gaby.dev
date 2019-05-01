@@ -14,7 +14,7 @@ router.get('/donate', ctx => {
 });
 
 router.get('/live', ctx => {
-	ctx.redirect('https://www.youtube.com/channel/UCiVqJ8VrvjqRKuPD_Hj-6bw');
+	ctx.redirect('https://www.youtube.com/watch?v=3IaaBh_HRwE');
 });
 
 app.use(async (ctx, next) => {
