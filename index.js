@@ -9,8 +9,16 @@ router.get('/', ctx => {
 	ctx.redirect('https://squared.codebrew.fr');
 });
 
+router.get('/github', ctx => {
+	ctx.redirect('https://github.com/GitSquared');
+});
+
 router.get('/donate', ctx => {
 	ctx.redirect('https://buymeacoff.ee/gaby');
+});
+
+router.get('/edex', ctx => {
+	ctx.redirect('https://github.com/GitSquared/edex-ui');
 });
 
 router.get('/live', ctx => {
