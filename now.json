@@ -4,7 +4,7 @@
   "alias": "gaby.dev",
   "scope": "squared",
   "regions": ["cdg", "sfo", "gru", "cle", "bom", "hnd1"],
-  "public": "false",
+  "public": false,
   "github": {
     "enabled": true,
     "autoAlias": true,
