@@ -9,6 +9,10 @@ router.get('/', ctx => {
 	ctx.redirect('https://squared.codebrew.fr');
 });
 
+router.get('/donate', ctx => {
+	ctx.redirect('https://buymeacoff.ee/gaby');
+});
+
 router.get('/live', ctx => {
 	ctx.redirect('https://www.youtube.com/channel/UCiVqJ8VrvjqRKuPD_Hj-6bw');
 });
