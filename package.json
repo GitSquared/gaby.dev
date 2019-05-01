@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "xo": "^0.24.0"
+  }
+}

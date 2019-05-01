@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "gaby.dev",
+  "alias": "gaby.dev",
+  "scope": "squared",
+  "regions": ["cdg", "sfo", "gru", "cle", "bom", "hnd1"],
+  "public": "false",
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": true,
+    "autoJobCancelation": true
+  },
+  "builds": [
+    { "src": "index.js", "use": "@now/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.js" }
+  ]
+}
