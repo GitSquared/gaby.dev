@@ -21,10 +21,6 @@ router.get('/edex', ctx => {
 	ctx.redirect('https://github.com/GitSquared/edex-ui');
 });
 
-router.get('/live', ctx => {
-	ctx.redirect('https://www.youtube.com/watch?v=3IaaBh_HRwE');
-});
-
 app.use(async (ctx, next) => {
 		const start = Date.now();
 		await next();
