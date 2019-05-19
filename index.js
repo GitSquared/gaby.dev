@@ -21,6 +21,10 @@ router.get('/edex', ctx => {
 	ctx.redirect('https://github.com/GitSquared/edex-ui');
 });
 
+router.get('/edex-vuln', ctx => {
+	ctx.redirect('https://squared.codebrew.fr/posts/edex-injection-vuln/');
+});
+
 app.use(async (ctx, next) => {
 		const start = Date.now();
 		await next();

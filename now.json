@@ -12,11 +12,9 @@
     "autoJobCancelation": true
   },
   "builds": [
-    { "src": "disclosure.html", "use": "@now/html-minifier" },
     { "src": "index.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/edex-vuln", "dest": "/disclosure.html" },
     { "src": "/(.*)", "dest": "/index.js" }
   ]
 }
