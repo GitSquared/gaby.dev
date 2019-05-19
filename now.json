@@ -12,7 +12,7 @@
     "autoJobCancelation": true
   },
   "builds": [
-    { "src": "disclosure.md", "use": "@now/md" },
+    { "src": "disclosure.html", "use": "@now/html-minifier" },
     { "src": "index.js", "use": "@now/node" }
   ],
   "routes": [
