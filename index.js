@@ -14,7 +14,7 @@ router.get('/github', ctx => {
 });
 
 router.get('/donate', ctx => {
-	ctx.redirect('https://buymeacoff.ee/gaby');
+	ctx.redirect('https://buymeacoffee.com/gaby');
 });
 
 router.get('/edex', ctx => {
@@ -22,7 +22,13 @@ router.get('/edex', ctx => {
 });
 
 router.get('/edex-vuln', ctx => {
-	ctx.redirect('https://squared.codebrew.fr/posts/edex-injection-vuln/');
+	ctx.redirect('/posts/edex-injection-vuln/');
+});
+
+
+
+router.get('/*', ctx => {
+	ctx.redirect('https://squared.codebrew.fr'+ctx.path);
 });
 
 app.use(async (ctx, next) => {
