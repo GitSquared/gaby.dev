@@ -66,3 +66,9 @@ footer nav a {
 footer nav a:hover {
 	opacity: 1;
 }
+
+
+@media only all and (orientation: portrait) {
+	section#card *, footer * { float: none !important; }
+	footer nav:first-child { margin-bottom: 2em; }
+}
