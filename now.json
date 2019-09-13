@@ -9,13 +9,11 @@
     "silent": true,
     "autoJobCancelation": true
   },
-  "builds": [
-  ],
   "routes": [
     {
-      "src": "/",
+      "src": "/posts(.*)",
       "status": 302,
-      "headers": { "Location": "https://squared.codebrew.fr" }
+      "headers": { "Location": "https://squared.codebrew.fr/posts$1" }
     },
     {
       "src": "/github",
@@ -36,11 +34,6 @@
       "src": "/edex-vuln",
       "status": 302,
       "headers": { "Location": "https://squared.codebrew.fr/posts/edex-injection-vuln/" }
-    },
-    {
-      "src": "/(.*)",
-      "status": 302,
-      "headers": { "Location": "https://squared.codebrew.fr/$1" }
     }
   ]
 }
