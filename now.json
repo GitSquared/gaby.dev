@@ -3,7 +3,7 @@
   "name": "gaby.dev",
   "alias": "gaby.dev",
   "scope": "squared",
-  "regions": ["cdg", "sfo", "gru", "cle", "bom", "hnd1"],
+  "regions": ["cdg", "sfo", "gru", "cle", "bom", "hnd", "syd"],
   "public": false,
   "github": {
     "enabled": true,
@@ -12,9 +12,14 @@
     "autoJobCancelation": true
   },
   "builds": [
-    { "src": "index.js", "use": "@now/node" }
+    { "src": "redirect/index.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.js" }
+    {
+      "src": "/",
+      "status": 302,
+      "headers": { "Location": "https://squared.codebrew.fr" }
+    },
+    { "src": "/(?<path>.+)", "dest": "/redirect/index.js?path=$path" }
   ]
 }

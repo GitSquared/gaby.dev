@@ -6,6 +6,7 @@ const router = new Router();
 
 
 router.get('/', ctx => {
+	// Not supposed to happen with Zeit routing, but in case of...
 	ctx.redirect('https://squared.codebrew.fr');
 });
 
@@ -36,6 +37,7 @@ app.use(async (ctx, next) => {
 		await next();
 		const ms = Date.now() - start;
 		ctx.set('X-Response-Time', `${ms}ms`);
+		ctx.set('Cache-Control', 's-maxage=2592000')
 	}).use(router.routes())
 	.use(router.allowedMethods());
 
