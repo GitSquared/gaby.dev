@@ -12,7 +12,6 @@
     "autoJobCancelation": true
   },
   "builds": [
-    { "src": "redirect/index.js", "use": "@now/node" }
   ],
   "routes": [
     {
@@ -20,6 +19,30 @@
       "status": 302,
       "headers": { "Location": "https://squared.codebrew.fr" }
     },
-    { "src": "/(?<path>.+)", "dest": "/redirect/index.js?path=$path" }
+    {
+      "src": "/github",
+      "status": 302,
+      "headers": { "Location": "https://github.com/GitSquared" }
+    },
+    {
+      "src": "/donate",
+      "status": 302,
+      "headers": { "Location": "https://buymeacoffee.com/gaby" }
+    },
+    {
+      "src": "/edex",
+      "status": 302,
+      "headers": { "Location": "https://github.com/GitSquared/edex-ui" }
+    },
+    {
+      "src": "/edex-vuln",
+      "status": 302,
+      "headers": { "Location": "https://squared.codebrew.fr/posts/edex-injection-vuln/" }
+    },
+    {
+      "src": "/(.*)",
+      "status": 302,
+      "headers": { "Location": "https://squared.codebrew.fr/$1" }
+    }
   ]
 }
