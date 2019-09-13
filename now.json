@@ -1,9 +1,7 @@
 {
   "version": 2,
   "name": "gaby.dev",
-  "alias": "gaby.dev",
   "scope": "squared",
-  "regions": ["cdg", "sfo", "gru", "cle", "bom", "hnd", "syd"],
   "public": false,
   "github": {
     "enabled": true,
