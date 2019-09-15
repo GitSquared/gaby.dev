@@ -1,4 +1,4 @@
-# Disclosure: Remote Code Injection in eDEX-UI 2.2.1 and below
+# eDEX-UI Remote Code Injection Disclosure
 date = 2019-05-19T19:20:53+02:00
 
 On April 30th, 2019, a vulnerability was found in the source code of [eDEX-UI](https://github.com/GitSquared/edex-ui).
