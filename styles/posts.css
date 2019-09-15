@@ -130,10 +130,6 @@ body > aside > p a {
 	margin: 0;
 }
 @media only all and (orientation: landscape) and (max-width: 1300px) {
-	body > aside > nav > ul li h4 {
-		display: none;
-	}
-
 	body > aside > nav > ul li {
 		max-width: 200px;
 	}
