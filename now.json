@@ -11,6 +11,11 @@
   },
   "routes": [
     {
+      "src": "/blog",
+      "status": 301,
+      "headers": { "Location": "https://gaby.dev/posts" }
+    },
+    {
       "src": "/github",
       "status": 302,
       "headers": { "Location": "https://github.com/GitSquared" }
