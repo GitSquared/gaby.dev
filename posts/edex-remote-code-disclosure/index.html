@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Disclosure: Remote Code Injection in eDEX-UI 2.2.1 and below - Gaby</title>
+		
+		<!-- seo -->
+		<meta name="author" content="Gaby 'Squared' SAILLARD">
+		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
+		<meta name="keywords" content="blog,developer,personal">
+		
+		<!-- display -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- icon -->
+		<link rel="icon" type="image/png" href="/pics/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/pics/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/pics/favicon.png" sizes="128x128">
+		
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="/styles/water.css">
+		<link rel="stylesheet" href="/styles/syntax.css">
+		<link rel="stylesheet" href="/styles/posts.css">
+	</head>
+	<body>
+		<aside>
+			<article>
+				<img src="/pics/avatar.jpg" alt="A picture of me.">
+			</article>
+			<aside>
+				<h1>Gaby</h1>
+				<h4>@Squared</h4>
+			</aside>
+			<hr>
+			<nav>
+				<h1>Latest posts</h1>
+				<ul>
+<!-- POSTS_LINKS -->
+<a disabled class="current-post">
+				<li>
+					<h4>Sun May 19 2019</h4><br><h1>Disclosure: Remote Code Injection in eDEX-UI 2.2.1 and below</h1>
+				</li>
+			</a><a href="/posts/mr-worldwide">
+				<li>
+					<h4>Sun Jan 20 2019</h4><br><h1>Introducing Mr.Worldwide</h1>
+				</li>
+			</a><a href="/posts/code-signing">
+				<li>
+					<h4>Fri Dec 28 2018</h4><br><h1>Code Signing & why it (currently) sucks</h1>
+				</li>
+			</a>
+<!-- POSTS_LINKS -->
+				</ul>
+			</nav>
+			<hr>
+			<p><a href="/">go back to homepage</a></p>
+		</aside>
+		<article>
+			<h1>Disclosure: Remote Code Injection in eDEX-UI 2.2.1 and below</h1>
+			<h4>Published Sun May 19 2019</h4>
+			<hr>
+			<p>On April 30th, 2019, a vulnerability was found in the source code of <a href="https://github.com/GitSquared/edex-ui">eDEX-UI</a>.</p>
+<p>An incorrectly escaped API response in the <code>netstat</code> module, which pings a remote server to get geoip information about the current network, could lead to remote code injection in the renderer process (which is Node-enabled).</p>
+<p>A fix for this vulnerability was pushed to <code>master</code> as soon as it was discovered, but a new version wasn&#39;t released immediately. Using this exploit required that the attacker could spoof a victim&#39;s DNS records and certificate storage to point <code>ipinfo.now.sh</code> to a fake API with a recognized SSL certificate. This was deemed hard enough to not necessitate an immediate release.</p>
+<p><a href="https://github.com/GitSquared/edex-ui/releases/v2.2.2">eDEX-UI v2.2.2</a>, released today, ships with a fix against this vulnerability, and the geoip API has been switched temporarily to another external, free service.</p>
+<p>Starting Monday, May 20th, the <code>ipinfo.now.sh</code> service will cause older, vulnerable versions of eDEX to display a warning message prompting users to update to <code>v2.2.2</code> or above, by exploiting the vulnerability.</p>
+<p align="center">
+  <br><br>
+    <img alt="Warning message broadcast" style="box-shadow: 2px 2px 5px rgba(0,0,0,0.3);width:70%;" src="/posts/edex-remote-code-disclosure/res/broadcast.png"/><br>
+    <p style="text-align:center;font-size:0.9em;opacity:0.8;"><em>Warning message that will be broadcasted on vulnerable versions.</em></p><br>
+</p>
+
+<p>As an open-source maintainer, ensuring the safety of the software I distribute is my number-one priority. This vulnerability was found thanks to the continuous integration services that are continuously scanning the code I push to GitHub.</p>
+<p>If you have any questions or concerns, you can reach me by email at <code>gabriel (at) saillard.dev</code>.</p>
+<p>-G</p>
+
+		</article>
+	</body>
+</html>
