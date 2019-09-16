@@ -27,6 +27,10 @@ body > article > p:not([align]) {
 	text-align: justify;
 }
 
+body > article ul {
+	padding-left: 20px;
+}
+
 body > aside {
 	opacity: 0.6;
 	transition: opacity 0.3s ease-out;
