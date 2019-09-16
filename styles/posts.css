@@ -131,6 +131,14 @@ body > aside > p a {
 	font-size: 0.9em;
 	margin: 0;
 }
+
+@media only all and (orientation: landscape) {
+	body > article > pre > code {
+		width: 110%;
+		margin-left: -5%;
+	}
+}
+
 @media only all and (orientation: landscape) and (max-width: 1300px) {
 	body > aside > nav > ul li {
 		max-width: 200px;
