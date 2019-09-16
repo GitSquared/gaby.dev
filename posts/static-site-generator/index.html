@@ -106,7 +106,7 @@
 <p>Finally, <code>build.sh</code> is just a shortcut to access the site generator:</p>
 <pre><code class="language-bash"><span class="hljs-meta">#!/bin/sh</span>
 node _tools/buildPosts.js</code></pre>
-<h2 id="usage">Usage</h2>
+<h2 id="workflow">Workflow</h2>
 <p>To create a new post, here&#39;s what I do:</p>
 <ul>
 <li>Make a new directory under <code>posts/</code>, with a short, url-friendly directory name.</li>
@@ -201,7 +201,7 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
     unbuilt: false
   }
 ]</code></pre>
-<p>This array is sorted so that newer posts will have lower indexes; which will be useful later for making th blog homepage.</p>
+<p>This array is sorted so that newer posts will have lower indexes; which will be useful later for making the blog homepage, and sidebar menus.</p>
 <pre><code class="language-js">posts.sort(<span class="hljs-function"><span class="hljs-params">(a, b)</span> =&gt;</span> {
     <span class="hljs-regexp">//</span> Sort posts <span class="hljs-keyword">by</span> timestamp
     <span class="hljs-keyword">return</span> b.date.getTime() - a.date.getTime();

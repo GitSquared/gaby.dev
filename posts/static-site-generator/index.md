@@ -64,7 +64,7 @@ Finally, `build.sh` is just a shortcut to access the site generator:
 node _tools/buildPosts.js
 ```
 
-## Usage
+## Workflow
 
 To create a new post, here's what I do:
  - Make a new directory under `posts/`, with a short, url-friendly directory name.
@@ -167,7 +167,7 @@ As you can see it uses a bunch of regex to retrieve info from either the unbuilt
 ]
 ```
 
-This array is sorted so that newer posts will have lower indexes; which will be useful later for making th blog homepage.
+This array is sorted so that newer posts will have lower indexes; which will be useful later for making the blog homepage, and sidebar menus.
 
 ```js
 posts.sort((a, b) => {
