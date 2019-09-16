@@ -1,4 +1,3 @@
-
 # Writing a static blog generator
 
 For about a year now, I have been using [Hugo](https://gohugo.io/) as a static site generator for my personal homepage.
