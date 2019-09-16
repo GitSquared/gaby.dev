@@ -50,8 +50,8 @@
 				let date = /\ndate(?:: | = )[0-9A-Z-:]+/g.exec(md);
 				if (date) date = date[0].substr(6).trim();
 
-				if (title) md = md.substring(md.indexOf("\n") + 1)
-				if (date) md = md.substring(md.indexOf("\n") + 1)
+				if (title) md = md.substring(md.indexOf("\n") + 1);
+				if (date) md = md.substring(md.indexOf("\n") + 1);
 
 				posts.push({
 					title,
