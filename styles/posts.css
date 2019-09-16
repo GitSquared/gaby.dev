@@ -143,6 +143,9 @@ body > aside > p a {
 	body > aside > nav > ul li {
 		max-width: 200px;
 	}
+	body > article {
+		max-width: 500px;
+	}
 }
 @media only all and (min-width: 1300px) {
 	body {
