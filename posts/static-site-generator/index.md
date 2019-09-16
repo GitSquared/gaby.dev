@@ -178,7 +178,7 @@ posts.sort((a, b) => {
 
 #### Building new posts
 
-New posts (`unbuilt === true`) are renderered using a [template HTML file](https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html) which has special strings like `{{ TITLE }}` and `{{ DATE }}`. These are replaced with the info retrieved above, using regex again.
+New posts (`unbuilt === true`) are rendered using a [template HTML file](https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html) which has special strings like `{{ TITLE }}` and `{{ DATE }}`. These are replaced with the info retrieved above, using regex again.
 
 Markdown is transformed into HTML using [`marked`](https://www.npmjs.com/package/marked).
 

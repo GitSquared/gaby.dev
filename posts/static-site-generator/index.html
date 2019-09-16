@@ -207,7 +207,7 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
     <span class="hljs-keyword">return</span> b.date.getTime() - a.date.getTime();
 });</code></pre>
 <h4 id="building-new-posts">Building new posts</h4>
-<p>New posts (<code>unbuilt === true</code>) are renderered using a <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html">template HTML file</a> which has special strings like <code>{{ TITLE }}</code> and <code>{{ DATE }}</code>. These are replaced with the info retrieved above, using regex again.</p>
+<p>New posts (<code>unbuilt === true</code>) are rendered using a <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html">template HTML file</a> which has special strings like <code>{{ TITLE }}</code> and <code>{{ DATE }}</code>. These are replaced with the info retrieved above, using regex again.</p>
 <p>Markdown is transformed into HTML using <a href="https://www.npmjs.com/package/marked"><code>marked</code></a>.</p>
 <pre><code class="language-js">let postTemplate = fs.readFileSync('posts/_template-<span class="hljs-keyword">post</span>-<span class="hljs-keyword">dir</span>/index.html', { encoding: 'utf-8' });
 
