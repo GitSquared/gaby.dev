@@ -3,6 +3,8 @@ body {
 	align-items: flex-start;
 	justify-content: flex-start;
 	flex-direction: row;
+	background: white;
+	color: black;
 }
 
 body > article {
