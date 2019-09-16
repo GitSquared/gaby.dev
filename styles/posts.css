@@ -132,13 +132,6 @@ body > aside > p a {
 	margin: 0;
 }
 
-@media only all and (min-width: 700px) {
-	body > article > pre > code {
-		width: 110%;
-		margin-left: -5%;
-	}
-}
-
 @media only all and (min-width: 400px) and (max-width: 1300px) {
 	body > aside > nav > ul li {
 		max-width: 200px;
@@ -147,6 +140,7 @@ body > aside > p a {
 		max-width: 500px;
 	}
 }
+
 @media only all and (min-width: 1300px) {
 	body {
 		padding-right: 400px;
@@ -156,6 +150,7 @@ body > aside > p a {
 		min-width: 600px;
 	}
 }
+
 @media only all and (max-width: 750px) {
 	body {
 		flex-direction: column-reverse;
@@ -192,5 +187,4 @@ body > aside > p a {
 		max-width: 80vw;
 	}
 }
-
 
