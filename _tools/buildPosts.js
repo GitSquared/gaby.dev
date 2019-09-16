@@ -74,7 +74,7 @@
 				// Retrieve info from markdown file
 				let md = await fs.readFile(url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
 				let title = /# .+\n/.exec(md)[0].substr(2).trim();
-				let date = /date(?:: | = )[0-9A-Z-:]+/g.exec(md);
+				let date = /\ndate(?:: | = )[0-9A-Z-:]+/g.exec(md);
 				if (date) date = date[0].substr(6).trim();
 
 				if (title) md = md.substring(md.indexOf("\n") + 1)
