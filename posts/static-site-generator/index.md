@@ -1,4 +1,5 @@
 # Writing a static blog generator
+date: 2019-09-15T22:00:00.000Z
 
 For about a year now, I have been using [Hugo](https://gohugo.io/) as a static site generator for my personal homepage.
 I recently bought a new laptop, and wanted to write a new blog post last Friday but realized I hadn't installed Hugo on the new system yet. Hugo needs Ruby, and I don't do anything in Ruby, so I didn't want to bloat my so-far-still-clean install just to write some articles...

@@ -47,7 +47,7 @@
 				// Retrieve info from markdown file
 				let md = fs.readFileSync(url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
 				let title = /# .+\n/.exec(md)[0].substr(2).trim();
-				let date = /\ndate(?:: | = )[0-9A-Z-:]+/g.exec(md);
+				let date = /\ndate: [0-9A-Z-:]+/g.exec(md);
 				if (date) date = date[0].substr(6).trim();
 
 				if (title) md = md.substring(md.indexOf("\n") + 1);
@@ -122,7 +122,7 @@
 
 		let previousPosts = '\n<!-- POSTS_LINKS -->\n';
 		posts.forEach(lpost => {
-			let link = (lpost.url === post.url) ? 'disabled class="current-post"' : `href="${lpost.url}"`;
+			let link = (lpost.url === post.url) ? 'disabled class="current-post"' : `href="${lpost.url}" target="_self"`;
 			previousPosts += `<a ${link}>
 				<li>
 					<h4>${lpost.date.toDateString()}</h4><br><h1>${lpost.title}</h1>

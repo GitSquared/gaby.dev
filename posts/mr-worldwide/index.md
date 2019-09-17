@@ -1,5 +1,5 @@
 # Introducing Mr.Worldwide
-date = 2019-01-20T18:50:33+01:00
+date: 2019-01-20T18:50:33+01:00
 
 To help with a little investigation of mine regarding international languages support in [eDEX-UI](https://github.com/GitSquared/edex-ui), I wanted to analyze a font file to see how many alphabets and languages it could support.
 
