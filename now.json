@@ -33,7 +33,7 @@
     {
       "src": "/edex-vuln",
       "status": 302,
-      "headers": { "Location": "https://squared.codebrew.fr/posts/edex-injection-vuln/" }
+      "headers": { "Location": "https://gaby.dev/posts/edex-remote-code-disclosure" }
     }
   ]
 }
