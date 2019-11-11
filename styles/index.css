@@ -77,7 +77,7 @@ footer nav a.social-icons-links:hover {
 }
 
 @media only all and (orientation: portrait) {
-	section#card *, footer * {
+	section#card * {
 		float: none !important;
 	}
 	
@@ -87,8 +87,17 @@ footer nav a.social-icons-links:hover {
 		padding-bottom: 20px;
 		margin-bottom: 20px;
 	}
+	
+	section#card artice {
+		text-align: center;
+	}
 
-	footer nav:first-child {
+	footer {
 		margin-bottom: 2em;
+		grid-template-columns: 1fr;
+	}
+	
+	footer nav:first-child {
+		margin-bottom: 1.5em;
 	}
 }
