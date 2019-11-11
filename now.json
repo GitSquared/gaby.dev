@@ -30,6 +30,11 @@
       "status": 302,
       "headers": { "Location": "https://gaby.dev/posts/edex-remote-code-disclosure" }
     },
+	{
+      "src": "/email",
+      "status": 302,
+      "headers": { "Location": "mailto:gabriel@saillard.dev" }
+	},
     {
       "src": "/twitter",
       "status": 302,
