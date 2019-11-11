@@ -82,6 +82,14 @@ body > section > nav > ul li > h4 {
 	opacity: 0.5;
 }
 
+@media only all and (orientation: landscape) {
+	body > section > nav > ul li > h4 {
+		display: inline-block;
+		width: 130px;
+		text-align: left;
+	}
+}
+
 body > section > nav > ul li > h1 {
 	text-decoration: underline;
 }
@@ -102,8 +110,21 @@ body > section > p a:hover {
 	body > section > nav {
 		padding: 0 1em;
 	}
+	
+	body > section > nav > ul {
+		align-items: center;
+	}
+
 	body > section > nav > ul li {
 		white-space: normal;
 		margin-bottom: 1em;
+		line-height: 0;
+		color: white;
+	}
+
+	body > section > nav > ul li > h4, body > section > nav > ul li > h1 {
+		display: block;
+		line-height: 1.1;
+		color: black;
 	}
 }
