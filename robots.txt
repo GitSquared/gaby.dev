@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /pics/
+Disallow: /404.html
