@@ -42,16 +42,8 @@ footer {
 	clear: both;
 	padding-top: 1em;
 	text-align: center;
-}
-
-footer nav:first-child {
-	float: left;
-	margin-right: 0.5em;
-}
-
-footer nav:last-child {
-	float: right;
-	margin-left: 0.5em;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 footer nav p {
@@ -69,6 +61,20 @@ footer nav a:hover {
 	opacity: 1;
 }
 
+footer nav a.social-icons-links {
+	line-height: 1.9;
+	filter: brightness(0%);
+	transition: filter 0.2s ease-out;
+}
+
+footer nav a.social-icons-links img {
+	height: 1.5rem;
+	vertical-align: middle;
+}
+
+footer nav a.social-icons-links:hover {
+	filter: brightness(100%);
+}
 
 @media only all and (orientation: portrait) {
 	section#card *, footer * {

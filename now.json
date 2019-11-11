@@ -16,11 +16,6 @@
       "headers": { "Location": "https://gaby.dev/posts" }
     },
     {
-      "src": "/github",
-      "status": 302,
-      "headers": { "Location": "https://github.com/GitSquared" }
-    },
-    {
       "src": "/donate",
       "status": 302,
       "headers": { "Location": "https://buymeacoffee.com/gaby" }
@@ -34,6 +29,41 @@
       "src": "/edex-vuln",
       "status": 302,
       "headers": { "Location": "https://gaby.dev/posts/edex-remote-code-disclosure" }
+    },
+    {
+      "src": "/twitter",
+      "status": 302,
+      "headers": { "Location": "https://twitter.com/GitSquared" }
+    },
+    {
+      "src": "/github",
+      "status": 302,
+      "headers": { "Location": "https://github.com/GitSquared" }
+    },
+    {
+      "src": "/hn",
+      "status": 302,
+      "headers": { "Location": "https://news.ycombinator.com/user?id=_squared_" }
+    },
+    {
+      "src": "/keybase",
+      "status": 302,
+      "headers": { "Location": "https://keybase.io/squared_0" }
+    },
+    {
+      "src": "/reddit",
+      "status": 302,
+      "headers": { "Location": "https://reddit.com/user/Squared_fr" }
+    },
+    {
+      "src": "/instagram",
+      "status": 302,
+      "headers": { "Location": "https://instagram.com/gabyblbl" }
+    },
+    {
+      "src": "/telegram",
+      "status": 302,
+      "headers": { "Location": "https://t.me/GabySquared" }
     }
   ]
 }
