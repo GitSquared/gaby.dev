@@ -24,7 +24,8 @@
 		<script>
 		  (async function() {
 			 if (fetch) {
-				await fetch('https://reporter.gaby.dev/api/report/'+(document.referrer || 'noref'));
+				const ref = (document.referrer) ? document.referrer.replace(/\//g, '-') : 'noref';
+				await fetch('https://reporter.gaby.dev/api/report/'+ref);
 			 }
 		  })();
 		</script>
