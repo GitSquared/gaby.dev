@@ -21,6 +21,14 @@
 		<link rel="stylesheet" href="styles/index.css">
 	</head>
 	<body>
+		<script>
+		  (async function() {
+			 if (fetch && document.referrer) {
+				await fetch('https://reporter.gaby.dev/api/report/'+document.referrer);
+			 }
+		  })();
+		</script>
+		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
 		<section id="card">
 			<article>
 				<img src="pics/avatar.jpg" alt="A picture of me.">
@@ -68,5 +76,6 @@
 				</p>
 			</nav>
 		</footer>
+
 	</body>
 </html>

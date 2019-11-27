@@ -26,10 +26,16 @@
 		<link rel="stylesheet" href="/styles/posts.css">
 	</head>
 	<body>
+		<script>
+		  (async function() {
+			 if (fetch && document.referrer) {
+				await fetch('https://reporter.gaby.dev/api/report/'+document.referrer);
+			 }
+		  })();
+		</script>
+		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+
 		<aside>
-			<article>
-				<img src="/pics/avatar.jpg" alt="A picture of me.">
-			</article>
 			<aside>
 				<h1>Gaby</h1>
 				<h4>@Squared</h4>

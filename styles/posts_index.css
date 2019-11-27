@@ -13,20 +13,7 @@ body > section {
 	margin: auto;
 }
 
-body > section > article {
-	display: inline-block;
-}
-
-body > section > article > img {
-	width: 8em;
-	border-radius: 100%;
-}
-
 body > section > aside {
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
-	margin-left: 1em;
 	padding-top: 2.5em;
 }
 

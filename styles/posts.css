@@ -41,20 +41,7 @@ body > aside:hover {
 	opacity: 1;
 }
 
-body > aside > article {
-	display: inline-block;
-	margin-right: 0.5em;
-}
-
-body > aside > article > img {
-	width: 5em;
-	border-radius: 100%;
-}
-
 body > aside > aside {
-	display: inline-block;
-	vertical-align: top;
-	text-align: left;
 	padding-top: 1em;
 }
 
