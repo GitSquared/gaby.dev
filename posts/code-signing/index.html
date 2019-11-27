@@ -28,8 +28,8 @@
 	<body>
 		<script>
 		  (async function() {
-			 if (fetch && document.referrer) {
-				await fetch('https://reporter.gaby.dev/api/report/'+document.referrer);
+			 if (fetch) {
+				await fetch('https://reporter.gaby.dev/api/report/'+(document.referrer || 'noref'));
 			 }
 		  })();
 		</script>
