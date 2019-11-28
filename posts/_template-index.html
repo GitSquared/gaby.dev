@@ -25,7 +25,7 @@
 		<script>
 		  (async function() {
 			 if (fetch) {
-				const ref = (document.referrer) ? document.referrer.replace(/\//g, '-') : 'noref';
+				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
 				await fetch('https://reporter.gaby.dev/api/report/'+ref);
 			 }
 		  })();
