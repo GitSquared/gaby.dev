@@ -70,11 +70,16 @@
       "status": 302,
       "headers": { "Location": "https://t.me/GabySquared" }
     },
+    {
+      "src": "/pgp",
+      "headers": { "Content-Type": "application/pgp-keys" },
+      "dest": "/key0x4F615B5FE436611A.asc"
+    },
     { "handle": "filesystem" },
     {
       "src": "/(.*)",
       "status": 404,
       "dest": "/404.html"
-	}
+    }
   ]
 }
