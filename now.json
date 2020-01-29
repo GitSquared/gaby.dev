@@ -11,6 +11,11 @@
   },
   "routes": [
     {
+      "src": "/ginc",
+      "status": 302,
+      "headers": { "Location": "https://github.com/GitSquared/Goodinc" }
+    },
+    {
       "src": "/blog",
       "status": 301,
       "headers": { "Location": "https://gaby.dev/posts" }
