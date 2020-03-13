@@ -42,7 +42,7 @@
 				if (file.endsWith('.md')) return true;
 				return false;
 			});
-			
+
 			if (mds.length === 1) {
 				// Retrieve info from markdown file
 				let md = fs.readFileSync(url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
@@ -101,16 +101,20 @@
 	let indexTemplate = fs.readFileSync('posts/_template-index.html', { encoding: 'utf-8' });
 
 	spin.text = 'Building new posts...';
-	
+
 	posts.forEach(post => {
 		if (!post.unbuilt) return;
-		
+
 		post.rendered = postTemplate;
-		
+
 		post.rendered = post.rendered.replace(/{{ TITLE }}/g, post.title)
-						.replace(/{{ DATE }}/g, post.date.toDateString())
-						.replace(/{{ POST }}/g, marked(post.src))
-						.replace(/{{ URL }}/g, post.url);
+						.replace(/{{ DATE }}(?!\\)/g, post.date.toDateString())
+						.replace(/{{ POST }}(?!\\)/g, marked(post.src))
+						.replace(/{{ URL }}(?!\\)/g, post.url)
+						// Remove escaper:
+						.replace(/{{ DATE }}\\/g, '{{ DATE }}')
+						.replace(/{{ POST }}\\/g, '{{ POST }}')
+						.replace(/{{ URL }}\\/g, '{{ URL }}');
 	});
 
 	spin.text = 'Update link lists inside posts...';
