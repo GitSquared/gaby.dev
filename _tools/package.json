@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "highlight.js": "^9.15.10",
-    "marked": "^0.7.0",
-    "ora": "^3.4.0"
+    "highlight.js": "^9.18.1",
+    "marked": "^0.8.0",
+    "ora": "^4.0.3"
   }
 }
