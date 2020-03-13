@@ -124,7 +124,7 @@ node _tools/buildPosts.js</code></pre>
 <li>Write the post in Markdown.<ul>
 <li>The first line must be a <code># Heading</code> and will determinate the full-length post title.</li>
 <li>If the second line looks like <code>date: YYYY-MM-DD</code> (or any JS-valid time representation), the generator will use that to date the post - otherwise it uses the current date at build time.</li>
-<li><code>/posts/static-site-generator</code> is replaced with the url to the post directory (used to link resources).</li>
+<li><code>{{ URL }}</code> is replaced with the url to the post directory (used to link resources).</li>
 </ul>
 </li>
 <li>Run <code>./build.sh</code>.</li>

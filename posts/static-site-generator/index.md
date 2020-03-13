@@ -73,7 +73,7 @@ To create a new post, here's what I do:
  - Write the post in Markdown.
    - The first line must be a `# Heading` and will determinate the full-length post title.
    - If the second line looks like `date: YYYY-MM-DD` (or any JS-valid time representation), the generator will use that to date the post - otherwise it uses the current date at build time.
-   - `{{ URL }}` is replaced with the url to the post directory (used to link resources).
+   - `{{ URL }}\` is replaced with the url to the post directory (used to link resources).
  - Run `./build.sh`.
  - Commit, push, and it's live!
 
@@ -108,7 +108,7 @@ postsDirs.forEach(dir => {
             if (file.endsWith('.md')) return true;
             return false;
         });
-        
+
         if (mds.length === 1) {
             // Retrieve info from markdown file
             let md = fs.readFileSync(url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
@@ -189,9 +189,9 @@ let postTemplate = fs.readFileSync('posts/_template-post-dir/index.html', { enco
 posts.forEach(post => {
     // Skip already-built posts.
     if (!post.unbuilt) return;
-    
+
     post.rendered = postTemplate;
-    
+
     post.rendered = post.rendered.replace(/{{ TITLE }}/g, post.title)
                     .replace(/{{ DATE }}/g, post.date.toDateString())
                     .replace(/{{ POST }}/g, marked(post.src))
@@ -226,7 +226,7 @@ posts.forEach(post => {
     // Add the special POSTS_LINKS comments at the beginnind and end of the string,
     // otherwise they will be deleted on search-and-replace
     let previousPosts = '\n<!-- POSTS_LINKS -->\n';
-    
+
     posts.forEach(lpost => {
         // Disable link for the current post
         let link = (lpost.url === post.url) ? 'disabled class="current-post"' : `href="${lpost.url}"`;
@@ -237,7 +237,7 @@ posts.forEach(post => {
             </li>
         </a>`;
     });
-    
+
     previousPosts += '\n<!-- POSTS_LINKS -->\n';
 
     // Replace the old links with the new ones                      ▼▼▼▼▼▼ ---- This means "every character" (non-whitespace + whitespace)
