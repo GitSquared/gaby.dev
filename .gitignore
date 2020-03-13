@@ -7,3 +7,5 @@ _tools/node_modules
 
 # Now secrets for local dev
 now.env
+
+.now
