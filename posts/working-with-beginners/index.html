@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Thoughts on working with beginners - Gaby</title>
+		
+		<!-- seo -->
+		<meta name="author" content="Gaby 'Squared' SAILLARD">
+		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
+		<meta name="keywords" content="blog,developer,personal">
+		
+		<!-- display -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- links -->
+		<base target="_blank">
+
+		<!-- icon -->
+		<link rel="icon" type="image/png" href="/pics/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="/pics/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="/pics/favicon.png" sizes="128x128">
+		
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="/styles/water.css">
+		<link rel="stylesheet" href="/styles/syntax.css">
+		<link rel="stylesheet" href="/styles/posts.css">
+	</head>
+	<body>
+		<script>
+		  (async function() {
+			 if (fetch) {
+				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
+				await fetch('https://reporter.gaby.dev/api/report/'+ref);
+			 }
+		  })();
+		</script>
+		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+
+		<aside>
+			<aside>
+				<h1>Gaby</h1>
+				<h4>@Squared</h4>
+			</aside>
+			<hr>
+			<nav>
+				<h1>Latest posts</h1>
+				<ul>
+<!-- POSTS_LINKS -->
+<a disabled class="current-post">
+				<li>
+					<h4>Tue May 05 2020</h4><br><h1>Thoughts on working with beginners</h1>
+				</li>
+			</a><a href="/posts/static-site-generator" target="_self">
+				<li>
+					<h4>Sun Sep 15 2019</h4><br><h1>Writing a static blog generator</h1>
+				</li>
+			</a><a href="/posts/edex-remote-code-disclosure" target="_self">
+				<li>
+					<h4>Sun May 19 2019</h4><br><h1>eDEX-UI Remote Code Injection Disclosure</h1>
+				</li>
+			</a><a href="/posts/mr-worldwide" target="_self">
+				<li>
+					<h4>Sun Jan 20 2019</h4><br><h1>Introducing Mr.Worldwide</h1>
+				</li>
+			</a><a href="/posts/code-signing" target="_self">
+				<li>
+					<h4>Fri Dec 28 2018</h4><br><h1>Code Signing & why it (currently) sucks</h1>
+				</li>
+			</a>
+<!-- POSTS_LINKS -->
+				</ul>
+			</nav>
+			<hr>
+			<p><a href="/" target="_self">go back to homepage</a></p>
+		</aside>
+		<article>
+			<h1>Thoughts on working with beginners</h1>
+			<h4>Published Tue May 05 2020</h4>
+			<hr>
+			<p>Since last October, motivated by the success of some of my open-sources projects and my passion for software, I&#39;ve started a 5-year program in a french private graduate school (HETIC).</p>
+<p>It is one of those &quot;digital expert&quot; things where you get courses on lightweight software engineering, marketing and design with even a light touch of politics, the goal being to make competent project leaders and entrepreneurs who can understand all of the aspects of a modern SaaS product.</p>
+<p>This has given me a strange but very insightful opportunity: to work on software projects with absolute beginners.</p>
+<p>Here is my advice to get a project delivered in such a way that <strong>everyone will learn from the experience</strong> and <strong>make friends, not ennemies</strong>, in the process.<br>It is intended for both parts of such a relationship.</p>
+<h2 id="dont-be-too-ambitious">Don&#39;t be too ambitious.</h2>
+<p>Let&#39;s keep this real. On a small enough scale, increasing the number of developers exponentially increases the time needed to achieve the project.<br>Even more so when at least one of them is a beginner.</p>
+<p><strong>As a skilled developper, you will have to set the goals &amp; ambitions for the project</strong>. A good way to set those goals is to think about what you could build in <em>half</em> the time you have before the deadline.</p>
+<p>Try to think only in features, not technical implementations: beginners need to learn the language before you start talking to them about frameworks and stacks and good continuous delivery practices. Go as barebone as possible.</p>
+<p><strong>As a beginner,</strong> don&#39;t look at some of your more skilled peer&#39;s latest projects and think that this is what you&#39;ll build because he/she will teach you everything in the process. It just won&#39;t happen, for a simple reason:</p>
+<h2 id="teaching-is-hard">Teaching is hard.</h2>
+<p>I can&#39;t stress this enough. There is a <strong><em>very large</em></strong> gap between knowing something and being able to teach it in a clear, understandable manner.</p>
+<p>Chances are both of you will lose hope at some point, but <strong>don&#39;t stop trying</strong> because it is the most interesting and insightful part of the experience, for both parties involved.</p>
+<p>Ideally, if you can afford it, you should try letting the beginner write as much of the code as possible, while the skilled dev looks over his/her shoulder, only suggesting overrall structure, logic and bug fixes.</p>
+<p>One thing you should keep in mind when doing this, as the &quot;teacher&quot;, is to try and let your &quot;student&quot; guess what you would tell them.</p>
+<h2 id="make-it-a-guessing-game">Make it a guessing game.</h2>
+<p>For instance, if something is not working, give a first clue pointing to the right part of the code, like so:<br><em>&quot;I think something is wrong at line X. Do you see it?&quot;</em></p>
+<p>If that isn&#39;t enough, go deeper in details, possibly explaining the problem but <strong>not the solution</strong>:<br><em>&quot;Your &#39;for&#39; loop is flawed because it does more loops than there are elements in your array.&quot;</em></p>
+<p>Finally, explain the problem <strong>in depth</strong> and propose one or more solutions, with as much explanations as you can:<br><em>&quot;You&#39;ve iniated the control variable &#39;i&#39; at 0 and told the loop go on while &#39;i&#39; is less than 6, which is the size of your array. But because you start at 0, you will actually loop 7 times. You can either lower your loop condition or start the control variable at 1.&quot;</em></p>
+<p>You should encourage &quot;trying stuff&quot; as much as possible: if you know the code on the screen will not compile, let the beginner try anyway and be confronted with the error message.</p>
+<p>If you&#39;re writing entirely new stuff, start by going over what the program <em>should do</em> (think input/output), and then gradually suggest how it could do it.<br>Wait for something to work before suggesting optimizations or cleaner ways of writing it.</p>
+<p><strong>This requires focus and patience on both ends.</strong> But eventually, you&#39;ll find that it is a very effective method that you can apply to both fixing existing problems and writing entirely new code.</p>
+<h2 id="keep-motivation-strong">Keep motivation strong.</h2>
+<p>Most of the time I&#39;ve found that motivation starts degrading around the end of a project, when everyone is having headaches on deep code problems and the bigger picture sort of fades away.</p>
+<p>In those moments, don&#39;t hesitate to take a break, look over what you&#39;ve already done, and pat yourself on the back. Take an evening off and go grab a beer or something. We&#39;re only human.</p>
+<p>If you&#39;re the beginner and you&#39;re starting to lose hope because your peer is <em>so damned good at this</em>, keep in mind that <strong>because your mentor started learning years before you did does not mean you suck at this</strong>.<br>Most likely you&#39;re actually pretty damn good if you can follow along.</p>
+<p>If anything, you should be <em>pissed</em> that anybody has more skills than you do, and you should strive to get even better than them. Because guess what, you got the guts and brains to do that, too!</p>
+<h2 id="things-not-to-forget">Things not to forget...</h2>
+<p>Everyone does not share the same <em>ethos</em> regarding software programming, but I&#39;ll recommend that you remember the following:</p>
+<ol>
+<li><p><strong>Code is a means to an end.</strong><br>Outside the (very small) bubble of people who will read and/or work with your codebase, <strong><em>no one gives a shit</em></strong> about code.<br>What matters is the end result: the product, tool or demo you&#39;re building.</p>
+</li>
+<li><p><strong>Clean code will keep you from going insane.</strong><br>If you can&#39;t read it in 3 years and understand most of it, you&#39;re doing it wrong.</p>
+</li>
+<li><p><strong>Optimization comes with scale.</strong><br>There is no need to over-optimize everything from the beginning. Optimization will make your code harder to understand and make it more difficult to refactor large part of the architecture itself.<br>You should only try to avoid common pitfalls, and leave most of the optimization problem for when it&#39;ll actually start to look like a problem.</p>
+</li>
+<li><p><strong>You are not a robot.</strong><br>If you&#39;re struggling too much, just take a pause. Writing software demands focus, motivation, and a well-rested mind. It&#39;s kind of like yoga.</p>
+</li>
+</ol>
+<p>Good luck, and don&#39;t forget to have fun.</p>
+
+		</article>
+	</body>
+</html>
