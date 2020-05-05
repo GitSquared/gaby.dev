@@ -1,7 +1,7 @@
 # Thoughts on working with beginners
 date: 2020-05-05T10:00:00.000Z
 
-Since last October, motivated by the success of some of my open-sources projects and my passion for software, I've started a 5-year program in a french private graduate school (HETIC).
+Since last October, motivated by the success of some of my open-source projects and my passion for software, I've started a 5-year program in a french private graduate school (HETIC).
 
 It is one of those "digital expert" things where you get courses on lightweight software engineering, marketing and design with even a light touch of politics, the goal being to make competent project leaders and entrepreneurs who can understand all of the aspects of a modern SaaS product.
 
@@ -18,7 +18,7 @@ Even more so when at least one of them is a beginner.
 
 Try to think only in features, not technical implementations: beginners need to learn the language before you start talking to them about frameworks and stacks and good continuous delivery practices. Go as barebone as possible.
 
-**As a beginner,** don't look at some of your more skilled peer's latest projects and think that this is what you'll build because he/she will teach you everything in the process. It just won't happen, for a simple reason:
+**As a beginner,** don't look at some of your more skilled peer's latest projects and think that this is what you'll build because they will teach you everything in the process. It just won't happen, for a simple reason:
 
 ## Teaching is hard.
 I can't stress this enough. There is a ***very large*** gap between knowing something and being able to teach it in a clear, understandable manner.
@@ -37,7 +37,7 @@ If that isn't enough, go deeper in details, possibly explaining the problem but 
 _"Your 'for' loop is flawed because it does more loops than there are elements in your array."_
 
 Finally, explain the problem **in depth** and propose one or more solutions, with as much explanations as you can:
-_"You've iniated the control variable 'i' at 0 and told the loop go on while 'i' is less than 6, which is the size of your array. But because you start at 0, you will actually loop 7 times. You can either lower your loop condition or start the control variable at 1."_
+_"You've initiated the control variable 'i' at 0 and told the loop go on while 'i' is less than 6, which is the size of your array. But because you start at 0, you will actually loop 7 times. You can either lower your loop condition or start the control variable at 1."_
 
 You should encourage "trying stuff" as much as possible: if you know the code on the screen will not compile, let the beginner try anyway and be confronted with the error message.
 
