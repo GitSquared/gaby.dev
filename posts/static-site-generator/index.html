@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Writing a static blog generator - Gaby</title>
-		
+		<title>Writing a static blog generator - Gaby's blog</title>
+
 		<!-- seo -->
 		<meta name="author" content="Gaby 'Squared' SAILLARD">
 		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
 		<meta name="keywords" content="blog,developer,personal">
+
+		<!-- open graph -->
+		<meta property="og:title" content="Writing a static blog generator - Gaby's blog">
+		<meta property="og:type" content="article">
+		<meta property="og:image" content="https://gaby.dev/pics/avatar.jpg">
+		<meta property="og:description" content="An article on Gaby's personal blog.">
+		<meta property="og:url" content="https://gaby.dev/posts/static-site-generator">
+		<meta property="og:locale" content="en_US">
+		<meta property="og:site_name" content="gaby.dev">
 		
 		<!-- display -->
 		<meta charset="utf-8">
@@ -46,7 +55,11 @@
 				<h1>Latest posts</h1>
 				<ul>
 <!-- POSTS_LINKS -->
-<a disabled class="current-post">
+<a href="/posts/working-with-beginners" target="_self">
+				<li>
+					<h4>Tue May 05 2020</h4><br><h1>Thoughts on working with beginners</h1>
+				</li>
+			</a><a disabled class="current-post">
 				<li>
 					<h4>Sun Sep 15 2019</h4><br><h1>Writing a static blog generator</h1>
 				</li>
@@ -88,31 +101,31 @@
 <p>The website is all static HTML/CSS, because that&#39;s really all you should have in a personal website. Static is also <em>very cheap</em> to host these days - actually, it&#39;s <em>free</em> on serverless platforms like <a href="https://zeit.co">ZEIT Now</a>, which I use. I hear <a href="https://netlify.com">Netlify</a> has a similar offering, too.</p>
 <p>The whole site lives in a <a href="https://github.com">GitHub</a> repo, on which Now is plugged in - which means I just have to <code>git push</code> to deploy to production (and it&#39;s up in 900ms). It&#39;s also useful because it means I can host some stuff on GitHub and tell Now to ignore it for publishing: so my blog generator script is version-controlled but isn&#39;t uploaded as a part of the live website.</p>
 <p>Here&#39;s what that repo looks likes (<a href="https://github.com/GitSquared/gaby.dev/tree/1c56408ceef753a13f6d73c0ccb0b9809b57dd7a">see it on GH</a>):</p>
-<pre><code>gaby<span class="hljs-selector-class">.dev</span>
-├── _tools
-│  ├── node_modules
-│  ├── buildPosts<span class="hljs-selector-class">.js</span>
-│  ├── package-lock<span class="hljs-selector-class">.json</span>
-│  └── package<span class="hljs-selector-class">.json</span>
-├── posts
-│  ├── _template-post-dir
-│  │  ├── res
-│  │  │  └── illustration<span class="hljs-selector-class">.bmp</span>
-│  │  └── index<span class="hljs-selector-class">.html</span>
-│  ├── (... actual posts dirs)
-│  ├── _template-index<span class="hljs-selector-class">.html</span>
-│  └── index<span class="hljs-selector-class">.html</span>
-├── styles
-│  ├── index<span class="hljs-selector-class">.css</span>
-│  ├── posts<span class="hljs-selector-class">.css</span>
-│  ├── posts_index<span class="hljs-selector-class">.css</span>
-│  ├── syntax<span class="hljs-selector-class">.css</span>
-│  └── water<span class="hljs-selector-class">.css</span>
+<pre><code><span class="hljs-selector-tag">gaby</span><span class="hljs-selector-class">.dev</span>
+├── _<span class="hljs-selector-tag">tools</span>
+│  ├── <span class="hljs-selector-tag">node_modules</span>
+│  ├── <span class="hljs-selector-tag">buildPosts</span><span class="hljs-selector-class">.js</span>
+│  ├── <span class="hljs-selector-tag">package-lock</span><span class="hljs-selector-class">.json</span>
+│  └── <span class="hljs-selector-tag">package</span><span class="hljs-selector-class">.json</span>
+├── <span class="hljs-selector-tag">posts</span>
+│  ├── _<span class="hljs-selector-tag">template-post-dir</span>
+│  │  ├── <span class="hljs-selector-tag">res</span>
+│  │  │  └── <span class="hljs-selector-tag">illustration</span><span class="hljs-selector-class">.bmp</span>
+│  │  └── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span>
+│  ├── (... <span class="hljs-selector-tag">actual</span> <span class="hljs-selector-tag">posts</span> <span class="hljs-selector-tag">dirs</span>)
+│  ├── _<span class="hljs-selector-tag">template-index</span><span class="hljs-selector-class">.html</span>
+│  └── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span>
+├── <span class="hljs-selector-tag">styles</span>
+│  ├── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.css</span>
+│  ├── <span class="hljs-selector-tag">posts</span><span class="hljs-selector-class">.css</span>
+│  ├── <span class="hljs-selector-tag">posts_index</span><span class="hljs-selector-class">.css</span>
+│  ├── <span class="hljs-selector-tag">syntax</span><span class="hljs-selector-class">.css</span>
+│  └── <span class="hljs-selector-tag">water</span><span class="hljs-selector-class">.css</span>
 ├── <span class="hljs-selector-class">.nowignore</span>
 ├── <span class="hljs-selector-class">.gitignore</span>
-├── build<span class="hljs-selector-class">.sh</span>
-├── now<span class="hljs-selector-class">.json</span>
-└── index.html</code></pre><p>Each post lives inside its own directory in <code>posts/</code>, along with all the resources it needs (images, demos, etc).<br>Now&#39;s <code>.nowignore</code> is set to not upload the <code>_tools</code> directory - where the site generator lives - and anything starting with <code>_template-</code>.</p>
+├── <span class="hljs-selector-tag">build</span><span class="hljs-selector-class">.sh</span>
+├── <span class="hljs-selector-tag">now</span><span class="hljs-selector-class">.json</span>
+└── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span></code></pre><p>Each post lives inside its own directory in <code>posts/</code>, along with all the resources it needs (images, demos, etc).<br>Now&#39;s <code>.nowignore</code> is set to not upload the <code>_tools</code> directory - where the site generator lives - and anything starting with <code>_template-</code>.</p>
 <p>Finally, <code>build.sh</code> is just a shortcut to access the site generator:</p>
 <pre><code class="language-bash"><span class="hljs-meta">#!/bin/sh</span>
 node _tools/buildPosts.js</code></pre>
