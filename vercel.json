@@ -10,6 +10,11 @@
   },
   "routes": [
     {
+      "src": "/analytics",
+      "status": 302,
+      "headers": { "Location": "https://gabydev.typeform.com/to/PcxzZuT8" }
+    },
+    {
       "src": "/ginc",
       "status": 302,
       "headers": { "Location": "https://github.com/GitSquared/Goodinc" }
