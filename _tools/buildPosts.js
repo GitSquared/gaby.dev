@@ -67,7 +67,7 @@
 
 		// Parse index.html to retrieve date and title of existing posts
 		let index = fs.readFileSync(url.substr(1)+'/index.html', { encoding: 'utf-8' });
-		let title = /<title>.+<\/title>/g.exec(index)[0].substr(7).slice(0, -15);
+		let title = /<title>.+<\/title>/g.exec(index)[0].substr(7).slice(0, -22);
 		let date = /<h4>Published .+<\/h4>/g.exec(index)[0].substr(14).slice(0, -5);
 		date = new Date(date);
 
