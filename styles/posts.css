@@ -23,8 +23,19 @@ body > article > h4:first-of-type {
 body > article > hr:first-of-type {
 	margin-bottom: 1.3em;
 }
-body > article > p:not([align]) {
-	text-align: justify;
+body > article p:not([align]) {
+	text-align: left;
+	line-height: 1.6;
+}
+
+body > article blockquote {
+	border: none;
+	padding: 0;
+	font-family: serif;
+}
+
+body > article blockquote em {
+	font-weight: bold;
 }
 
 body > article ul {
