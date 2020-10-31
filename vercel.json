@@ -15,11 +15,6 @@
       "headers": { "Location": "https://gabydev.typeform.com/to/PcxzZuT8" }
     },
     {
-      "src": "/ginc",
-      "status": 302,
-      "headers": { "Location": "https://github.com/GitSquared/Goodinc" }
-    },
-    {
       "src": "/blog",
       "status": 301,
       "headers": { "Location": "https://gaby.dev/posts" }
@@ -53,6 +48,11 @@
       "src": "/github",
       "status": 302,
       "headers": { "Location": "https://github.com/GitSquared" }
+    },
+    {
+      "src": "/linkedin",
+      "status": 302,
+      "headers": { "Location": "https://www.linkedin.com/in/gabriel-saillard/" }
     },
     {
       "src": "/hn",
