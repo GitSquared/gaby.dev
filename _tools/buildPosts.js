@@ -27,7 +27,7 @@
 
 	let postsDirs = fs.readdirSync('posts/', { withFileTypes: true });
 	postsDirs = postsDirs.filter(e => {
-		if (!e.name.startsWith('_template') && e.isDirectory()) return true;
+		if (!e.name.startsWith('.template') && e.isDirectory()) return true;
 		return false;
 	});
 
@@ -97,8 +97,8 @@
 
 
 	spin.text = 'Retrieving HTML templates...';
-	let postTemplate = fs.readFileSync('posts/_template-post-dir/index.html', { encoding: 'utf-8' });
-	let indexTemplate = fs.readFileSync('posts/_template-index.html', { encoding: 'utf-8' });
+	let postTemplate = fs.readFileSync('posts/.template-post-dir/index.html', { encoding: 'utf-8' });
+	let indexTemplate = fs.readFileSync('posts/.template-index.html', { encoding: 'utf-8' });
 
 	spin.text = 'Building new posts...';
 
