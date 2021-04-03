@@ -1,11 +1,7 @@
-# Dependency dir for tool scripts
-_tools/node_modules
+node_modules
 
 # dotenv environment variables file
 .env
 .env.test
 
-# Now secrets for local dev
-now.env
-
-.now
+.vercel

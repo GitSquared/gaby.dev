@@ -1,0 +1,20 @@
+{
+  "name": "gaby.dev_tools",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rm public/posts/**/index.html; node buildPosts.js",
+    "watch": "node watcher.js",
+    "serve": "lite-server",
+    "dev": "concurrently -k npm:watch npm:serve"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.1",
+    "concurrently": "^6.0.0",
+    "highlight.js": "^10.7.1",
+    "lite-server": "^2.6.1",
+    "marked": "^2.0.1",
+    "ora": "^5.4.0",
+    "vercel": "^21.3.3"
+  }
+}

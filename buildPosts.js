@@ -25,7 +25,7 @@
 
 	let posts = [];
 
-	let postsDirs = fs.readdirSync('posts/', { withFileTypes: true });
+	let postsDirs = fs.readdirSync('public/posts/', { withFileTypes: true });
 	postsDirs = postsDirs.filter(e => {
 		if (!e.name.startsWith('.template') && e.isDirectory()) return true;
 		return false;
@@ -33,7 +33,7 @@
 
 	postsDirs.forEach(dir => {
 		let url = `/posts/${dir.name}`;
-		let content = fs.readdirSync(url.substr(1));
+		let content = fs.readdirSync('public/'+url.substr(1));
 
 		// Detect unbuilt posts
 		if (content.indexOf('index.html') === -1) {
@@ -45,7 +45,7 @@
 
 			if (mds.length === 1) {
 				// Retrieve info from markdown file
-				let md = fs.readFileSync(url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
+				let md = fs.readFileSync('public/'+url.substr(1)+'/'+mds[0], { encoding: 'utf-8' });
 				let title = /# .+\n/.exec(md)[0].substr(2).trim();
 				let date = /\ndate: [0-9A-Z-:]+/g.exec(md);
 				if (date) date = date[0].substr(6).trim();
@@ -66,7 +66,7 @@
 		};
 
 		// Parse index.html to retrieve date and title of existing posts
-		let index = fs.readFileSync(url.substr(1)+'/index.html', { encoding: 'utf-8' });
+		let index = fs.readFileSync('public/'+url.substr(1)+'/index.html', { encoding: 'utf-8' });
 		let title = /<title>.+<\/title>/g.exec(index)[0].substr(7).slice(0, -22);
 		let date = /<h4>Published .+<\/h4>/g.exec(index)[0].substr(14).slice(0, -5);
 		date = new Date(date);
@@ -91,14 +91,13 @@
 	});
 	log(`\n`);
 
-	spin = ora('Interrupt NOW if something seems wrong. Writing operations starts in 5s.').start();
-
-	await wait(5000);
+	// spin = ora('Interrupt NOW if something seems wrong. Writing operations starts in 5s.').start();
+	// await wait(5000);
 
 
 	spin.text = 'Retrieving HTML templates...';
-	let postTemplate = fs.readFileSync('posts/.template-post-dir/index.html', { encoding: 'utf-8' });
-	let indexTemplate = fs.readFileSync('posts/.template-index.html', { encoding: 'utf-8' });
+	let postTemplate = fs.readFileSync('public/posts/.template-post-dir/index.html', { encoding: 'utf-8' });
+	let indexTemplate = fs.readFileSync('public/posts/.template-index.html', { encoding: 'utf-8' });
 
 	spin.text = 'Building new posts...';
 
@@ -121,7 +120,7 @@
 
 	posts.forEach(post => {
 		if (!post.unbuilt) {
-			post.rendered = fs.readFileSync(post.url.substr(1)+'/index.html', { encoding: 'utf-8' });
+			post.rendered = fs.readFileSync('public/'+post.url.substr(1)+'/index.html', { encoding: 'utf-8' });
 		}
 
 		let previousPosts = '\n<!-- POSTS_LINKS -->\n';
@@ -153,11 +152,11 @@
 
 
 	spin.text = 'Writing index file...';
-	fs.writeFileSync('posts/index.html', index, { encoding: 'utf-8' });
+	fs.writeFileSync('public/posts/index.html', index, { encoding: 'utf-8' });
 
 	spin.text = 'Writing posts...';
 	posts.forEach(post => {
-		fs.writeFileSync(post.url.substr(1)+'/index.html', post.rendered, { encoding: 'utf-8' });
+		fs.writeFileSync('public/'+post.url.substr(1)+'/index.html', post.rendered, { encoding: 'utf-8' });
 	});
 
 	spin.text = 'All done!'
