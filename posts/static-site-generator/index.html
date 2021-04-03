@@ -105,34 +105,37 @@
 <p>The website is all static HTML/CSS, because that&#39;s really all you should have in a personal website. Static is also <em>very cheap</em> to host these days - actually, it&#39;s <em>free</em> on serverless platforms like <a href="https://zeit.co">ZEIT Now</a>, which I use. I hear <a href="https://netlify.com">Netlify</a> has a similar offering, too.</p>
 <p>The whole site lives in a <a href="https://github.com">GitHub</a> repo, on which Now is plugged in - which means I just have to <code>git push</code> to deploy to production (and it&#39;s up in 900ms). It&#39;s also useful because it means I can host some stuff on GitHub and tell Now to ignore it for publishing: so my blog generator script is version-controlled but isn&#39;t uploaded as a part of the live website.</p>
 <p>Here&#39;s what that repo looks likes (<a href="https://github.com/GitSquared/gaby.dev/tree/1c56408ceef753a13f6d73c0ccb0b9809b57dd7a">see it on GH</a>):</p>
-<pre><code><span class="hljs-selector-tag">gaby</span><span class="hljs-selector-class">.dev</span>
-├── _<span class="hljs-selector-tag">tools</span>
-│  ├── <span class="hljs-selector-tag">node_modules</span>
-│  ├── <span class="hljs-selector-tag">buildPosts</span><span class="hljs-selector-class">.js</span>
-│  ├── <span class="hljs-selector-tag">package-lock</span><span class="hljs-selector-class">.json</span>
-│  └── <span class="hljs-selector-tag">package</span><span class="hljs-selector-class">.json</span>
-├── <span class="hljs-selector-tag">posts</span>
-│  ├── _<span class="hljs-selector-tag">template-post-dir</span>
-│  │  ├── <span class="hljs-selector-tag">res</span>
-│  │  │  └── <span class="hljs-selector-tag">illustration</span><span class="hljs-selector-class">.bmp</span>
-│  │  └── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span>
-│  ├── (... <span class="hljs-selector-tag">actual</span> <span class="hljs-selector-tag">posts</span> <span class="hljs-selector-tag">dirs</span>)
-│  ├── _<span class="hljs-selector-tag">template-index</span><span class="hljs-selector-class">.html</span>
-│  └── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span>
-├── <span class="hljs-selector-tag">styles</span>
-│  ├── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.css</span>
-│  ├── <span class="hljs-selector-tag">posts</span><span class="hljs-selector-class">.css</span>
-│  ├── <span class="hljs-selector-tag">posts_index</span><span class="hljs-selector-class">.css</span>
-│  ├── <span class="hljs-selector-tag">syntax</span><span class="hljs-selector-class">.css</span>
-│  └── <span class="hljs-selector-tag">water</span><span class="hljs-selector-class">.css</span>
+<pre><code>gaby<span class="hljs-selector-class">.dev</span>
+├── _tools
+│  ├── node_modules
+│  ├── buildPosts<span class="hljs-selector-class">.js</span>
+│  ├── package-lock<span class="hljs-selector-class">.json</span>
+│  └── package<span class="hljs-selector-class">.json</span>
+├── posts
+│  ├── _template-post-dir
+│  │  ├── res
+│  │  │  └── illustration<span class="hljs-selector-class">.bmp</span>
+│  │  └── index<span class="hljs-selector-class">.html</span>
+│  ├── (... actual posts dirs)
+│  ├── _template-index<span class="hljs-selector-class">.html</span>
+│  └── index<span class="hljs-selector-class">.html</span>
+├── styles
+│  ├── index<span class="hljs-selector-class">.css</span>
+│  ├── posts<span class="hljs-selector-class">.css</span>
+│  ├── posts_index<span class="hljs-selector-class">.css</span>
+│  ├── syntax<span class="hljs-selector-class">.css</span>
+│  └── water<span class="hljs-selector-class">.css</span>
 ├── <span class="hljs-selector-class">.nowignore</span>
 ├── <span class="hljs-selector-class">.gitignore</span>
-├── <span class="hljs-selector-tag">build</span><span class="hljs-selector-class">.sh</span>
-├── <span class="hljs-selector-tag">now</span><span class="hljs-selector-class">.json</span>
-└── <span class="hljs-selector-tag">index</span><span class="hljs-selector-class">.html</span></code></pre><p>Each post lives inside its own directory in <code>posts/</code>, along with all the resources it needs (images, demos, etc).<br>Now&#39;s <code>.nowignore</code> is set to not upload the <code>_tools</code> directory - where the site generator lives - and anything starting with <code>_template-</code>.</p>
+├── build<span class="hljs-selector-class">.sh</span>
+├── now<span class="hljs-selector-class">.json</span>
+└── index.html
+</code></pre>
+<p>Each post lives inside its own directory in <code>posts/</code>, along with all the resources it needs (images, demos, etc).<br>Now&#39;s <code>.nowignore</code> is set to not upload the <code>_tools</code> directory - where the site generator lives - and anything starting with <code>_template-</code>.</p>
 <p>Finally, <code>build.sh</code> is just a shortcut to access the site generator:</p>
 <pre><code class="language-bash"><span class="hljs-meta">#!/bin/sh</span>
-node _tools/buildPosts.js</code></pre>
+node _tools/buildPosts.js
+</code></pre>
 <h2 id="workflow">Workflow</h2>
 <p>To create a new post, here&#39;s what I do:</p>
 <ul>
@@ -156,10 +159,10 @@ node _tools/buildPosts.js</code></pre>
 <p>The generator script first crawls through each <code>posts/</code> subdirectory and builds an array containing one object for each post, built or unbuilt:</p>
 <pre><code class="language-js">let posts = [];
 
-let postsDirs = fs.readdirSync(<span class="hljs-string">'posts/'</span>, { withFileTypes: <span class="hljs-keyword">true</span> });
+let postsDirs = fs.readdirSync(<span class="hljs-string">&#x27;posts/&#x27;</span>, { withFileTypes: <span class="hljs-keyword">true</span> });
 postsDirs = postsDirs.<span class="hljs-keyword">filter</span>(e =&gt; {
     // <span class="hljs-keyword">Do</span> <span class="hljs-keyword">not</span> parse <span class="hljs-keyword">template</span> directories
-    <span class="hljs-keyword">if</span> (!e.name.startsWith(<span class="hljs-string">'_template'</span>) &amp;&amp; e.isDirectory()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+    <span class="hljs-keyword">if</span> (!e.name.startsWith(<span class="hljs-string">&#x27;_template&#x27;</span>) &amp;&amp; e.isDirectory()) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
     <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
 });
 
@@ -168,23 +171,23 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
     let content = fs.readdirSync(url.substr(<span class="hljs-number">1</span>));
 
     // Detect unbuilt posts
-    <span class="hljs-keyword">if</span> (content.indexOf(<span class="hljs-string">'index.html'</span>) === <span class="hljs-number">-1</span>) {
+    <span class="hljs-keyword">if</span> (content.indexOf(<span class="hljs-string">&#x27;index.html&#x27;</span>) === <span class="hljs-number">-1</span>) {
         // <span class="hljs-keyword">Search</span> <span class="hljs-keyword">for</span> markdown source
         let mds = content.<span class="hljs-keyword">filter</span>(file =&gt; {
-            <span class="hljs-keyword">if</span> (file.endsWith(<span class="hljs-string">'.md'</span>)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
+            <span class="hljs-keyword">if</span> (file.endsWith(<span class="hljs-string">&#x27;.md&#x27;</span>)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
             <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
         });
 
         <span class="hljs-keyword">if</span> (mds.length === <span class="hljs-number">1</span>) {
             // Retrieve <span class="hljs-keyword">info</span> <span class="hljs-keyword">from</span> markdown file
-            let md = fs.readFileSync(url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">'/'</span>+mds[<span class="hljs-number">0</span>], { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">'utf-8'</span> });
+            let md = fs.readFileSync(url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">&#x27;/&#x27;</span>+mds[<span class="hljs-number">0</span>], { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
             let title = /# .+\n/.exec(md)[<span class="hljs-number">0</span>].substr(<span class="hljs-number">2</span>).trim();
             let <span class="hljs-type">date</span> = /\ndate(?:: | = )[<span class="hljs-number">0</span><span class="hljs-number">-9</span>A-Z-:]+/g.exec(md);
             <span class="hljs-keyword">if</span> (<span class="hljs-type">date</span>) <span class="hljs-type">date</span> = <span class="hljs-type">date</span>[<span class="hljs-number">0</span>].substr(<span class="hljs-number">6</span>).trim();
 
 
-            <span class="hljs-keyword">if</span> (title) md = md.substring(md.indexOf("\n") + <span class="hljs-number">1</span>)
-            <span class="hljs-keyword">if</span> (<span class="hljs-type">date</span>) md = md.substring(md.indexOf("\n") + <span class="hljs-number">1</span>)
+            <span class="hljs-keyword">if</span> (title) md = md.substring(md.indexOf(&quot;\n&quot;) + <span class="hljs-number">1</span>)
+            <span class="hljs-keyword">if</span> (<span class="hljs-type">date</span>) md = md.substring(md.indexOf(&quot;\n&quot;) + <span class="hljs-number">1</span>)
 
 
             posts.push({
@@ -200,7 +203,7 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
     };
 
     // Parse <span class="hljs-keyword">index</span>.html <span class="hljs-keyword">to</span> retrieve <span class="hljs-type">date</span> <span class="hljs-keyword">and</span> title <span class="hljs-keyword">of</span> existing posts
-    let <span class="hljs-keyword">index</span> = fs.readFileSync(url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">'/index.html'</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">'utf-8'</span> });
+    let <span class="hljs-keyword">index</span> = fs.readFileSync(url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">&#x27;/index.html&#x27;</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
     let title = /&lt;title&gt;.+&lt;\/title&gt;/g.exec(<span class="hljs-keyword">index</span>)[<span class="hljs-number">0</span>].substr(<span class="hljs-number">7</span>).<span class="hljs-keyword">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">-15</span>);
     let <span class="hljs-type">date</span> = /&lt;h4&gt;Published .+&lt;\/h4&gt;/g.exec(<span class="hljs-keyword">index</span>)[<span class="hljs-number">0</span>].substr(<span class="hljs-number">14</span>).<span class="hljs-keyword">slice</span>(<span class="hljs-number">0</span>, <span class="hljs-number">-5</span>);
     <span class="hljs-type">date</span> = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>(<span class="hljs-type">date</span>);
@@ -211,32 +214,35 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
         url,
         unbuilt: <span class="hljs-keyword">false</span>
     });
-});</code></pre>
+});
+</code></pre>
 <p>As you can see it uses a bunch of regex to retrieve info from either the unbuilt Markdown source or the renderer HTML file. Here&#39;s what the array looks like at this point:</p>
 <pre><code class="language-js">[
   {
-    title: <span class="hljs-symbol">'New</span> Post Example',
+    title: <span class="hljs-symbol">&#x27;New</span> Post Example&#x27;,
     date: Date.now(),
-    url: <span class="hljs-symbol">'posts/new-post</span>',
+    url: <span class="hljs-symbol">&#x27;posts/new-post</span>&#x27;,
     unbuilt: true,
-    src: '(Markdown file)'
+    src: &#x27;(Markdown file)&#x27;
   },
   {
-    title: <span class="hljs-symbol">'Introducing</span> Mr.Worldwide',
-    date: Date(<span class="hljs-symbol">'Sun</span> Jan <span class="hljs-number">20</span> <span class="hljs-number">2019</span>'),
-    url: <span class="hljs-symbol">'/posts/mr-worldwide</span>',
+    title: <span class="hljs-symbol">&#x27;Introducing</span> Mr.Worldwide&#x27;,
+    date: Date(<span class="hljs-symbol">&#x27;Sun</span> Jan <span class="hljs-number">20</span> <span class="hljs-number">2019</span>&#x27;),
+    url: <span class="hljs-symbol">&#x27;/posts/mr-worldwide</span>&#x27;,
     unbuilt: false
   }
-]</code></pre>
+]
+</code></pre>
 <p>This array is sorted so that newer posts will have lower indexes; which will be useful later for making the blog homepage, and sidebar menus.</p>
 <pre><code class="language-js">posts.sort(<span class="hljs-function"><span class="hljs-params">(a, b)</span> =&gt;</span> {
     <span class="hljs-regexp">//</span> Sort posts <span class="hljs-keyword">by</span> timestamp
     <span class="hljs-keyword">return</span> b.date.getTime() - a.date.getTime();
-});</code></pre>
+});
+</code></pre>
 <h4 id="building-new-posts">Building new posts</h4>
 <p>New posts (<code>unbuilt === true</code>) are rendered using a <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html">template HTML file</a> which has special strings like <code>{{ TITLE }}</code> and <code>{{ DATE }}</code>. These are replaced with the info retrieved above, using regex again.</p>
 <p>Markdown is transformed into HTML using <a href="https://www.npmjs.com/package/marked"><code>marked</code></a>.</p>
-<pre><code class="language-js">let postTemplate = fs.readFileSync('posts/_template-<span class="hljs-keyword">post</span>-<span class="hljs-keyword">dir</span>/index.html', { encoding: 'utf-8' });
+<pre><code class="language-js">let postTemplate = fs.readFileSync(&#x27;posts/_template-<span class="hljs-keyword">post</span>-<span class="hljs-keyword">dir</span>/index.html&#x27;, { encoding: &#x27;utf-8&#x27; });
 
 posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post</span> =&gt; {
     <span class="hljs-comment">// Skip already-built posts.</span>
@@ -248,30 +254,32 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
                     .<span class="hljs-keyword">replace</span>(/{{ DATE }}/<span class="hljs-keyword">g</span>, <span class="hljs-keyword">post</span>.date.toDateString())
                     .<span class="hljs-keyword">replace</span>(/{{ <span class="hljs-keyword">POST</span> }}/<span class="hljs-keyword">g</span>, marked(<span class="hljs-keyword">post</span>.src))
                     .<span class="hljs-keyword">replace</span>(//posts/static-site-generator/<span class="hljs-keyword">g</span>, <span class="hljs-keyword">post</span>.url);
-});</code></pre>
+});
+</code></pre>
 <h4 id="updating-navigation-sidebars">Updating navigation sidebars</h4>
 <p>Each post has a &quot;Latest posts&quot; menu in a sidebar. When new posts are added, the generator needs to rewrite this menu in all the previous posts to reflect the changes.</p>
 <p>The HTML post template includes special comments around the relevant part of the sidebar:</p>
 <pre><code class="language-html"><span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"/post/new-post"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/post/new-post&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>New post!<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span></code></pre>
+<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
+</code></pre>
 <p>This makes it easy to search-and-replace the links:</p>
 <pre><code class="language-js"><span class="xml">posts.forEach(post =&gt; </span><span class="hljs-template-variable">{
     <span class="hljs-keyword">if</span> (!post.unbuilt) {
         // Populate post.rendered with the already-built HTML file
-        post.rendered = await fs.readFile(post.url.substr(1)+'/index.html', { encoding: 'utf-8' }</span><span class="xml">);
+        post.rendered = await fs.readFile(post.url.substr(1)+&#x27;/index.html&#x27;, { encoding: &#x27;utf-8&#x27; }</span><span class="xml">);
     }
 
     // Build the new posts links HTML
     // Add the special POSTS_LINKS comments at the beginnind and end of the string,
     // otherwise they will be deleted on search-and-replace
-    let previousPosts = '\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n';
+    let previousPosts = &#x27;\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n&#x27;;
 
     posts.forEach(lpost =&gt; </span><span class="hljs-template-variable">{
         // Disable link for the current post
-        let link = (lpost.url === post.url) ? 'disabled class="current-post"' : `href="${lpost.url}</span><span class="xml">"`;
+        let link = (lpost.url === post.url) ? &#x27;disabled class=&quot;current-post&quot;&#x27; : `href=&quot;${lpost.url}</span><span class="xml">&quot;`;
 
         previousPosts += `<span class="hljs-tag">&lt;<span class="hljs-name">a</span> $</span></span><span class="hljs-template-variable">{link}</span><span class="xml"><span class="hljs-tag">&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
@@ -280,34 +288,37 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>`;
     });
 
-    previousPosts += '\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n';
+    previousPosts += &#x27;\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n&#x27;;
 
-    // Replace the old links with the new ones                      ▼▼▼▼▼▼ ---- This means "every character" (non-whitespace + whitespace)
+    // Replace the old links with the new ones                      ▼▼▼▼▼▼ ---- This means &quot;every character&quot; (non-whitespace + whitespace)
     post.rendered = post.rendered.replace(/\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n([\s\S]*)\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n/g, previousPosts);
-});</span></code></pre>
+});</span>
+</code></pre>
 <h4 id="creating-the-blog-homepage">Creating the blog homepage</h4>
 <p>The blog index/homepage (at <code>posts/index.html</code>) also has its own <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-index.html">template</a>, with a <code>{{ POSTS_LINKS }}</code> string inside.</p>
-<pre><code class="language-js"><span class="hljs-keyword">let</span> indexTemplate = fs.readFileSync(<span class="hljs-string">'posts/_template-index.html'</span>, { encoding: <span class="hljs-string">'utf-8'</span> });
+<pre><code class="language-js"><span class="hljs-keyword">let</span> indexTemplate = fs.readFileSync(<span class="hljs-string">&#x27;posts/_template-index.html&#x27;</span>, { encoding: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
 
 <span class="hljs-keyword">let</span> index = indexTemplate;
-<span class="hljs-keyword">let</span> previousPosts = <span class="hljs-string">''</span>;
+<span class="hljs-keyword">let</span> previousPosts = <span class="hljs-string">&#x27;&#x27;</span>;
 
 posts.forEach(post =&gt; {
-    previousPosts += `<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"${post.url}"</span>&gt;</span>
+    previousPosts += `<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;${post.url}&quot;</span>&gt;</span>
         </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
             </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>$</span><span class="xquery">{post.date.toDateString()}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span></span><span class="xml"> - </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>$</span><span class="xquery">{post.title}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><span class="xml">
         <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><span class="xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>`;
 });
 
-index = index<span class="hljs-built_in">.replace</span>(/{{ POSTS_LINKS }}/g, previousPosts);</code></pre>
+index = index<span class="hljs-built_in">.replace</span>(/{{ POSTS_LINKS }}/g, previousPosts);
+</code></pre>
 <h4 id="saving-everything">Saving everything</h4>
 <p>The script now has a <code>post</code> array containing one object for each post, where <code>post.rendered</code> is the new or updated HTML file, and an <code>index</code> string which has the HTML code for the blog homepage.<br>The only thing left is to save everything to disk!</p>
-<pre><code class="language-js">fs.writeFileSync(<span class="hljs-string">'posts/index.html'</span>, <span class="hljs-keyword">index</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">'utf-8'</span> });
+<pre><code class="language-js">fs.writeFileSync(<span class="hljs-string">&#x27;posts/index.html&#x27;</span>, <span class="hljs-keyword">index</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
 
 posts.<span class="hljs-keyword">forEach</span>(post =&gt; {
-    fs.writeFileSync(post.url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">'/index.html'</span>, post.rendered, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">'utf-8'</span> });
-});</code></pre>
+    fs.writeFileSync(post.url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">&#x27;/index.html&#x27;</span>, post.rendered, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
+});
+</code></pre>
 <h2 id="footnote">Footnote</h2>
 <p>I voluntarily removed some quality-of-life code from the snippets in this post to keep it clear and simple.<br>If you&#39;re interested into using this for your own site or playing around with it, check out the <a href="https://github.com/GitSquared/gaby.dev/blob/master/_tools/buildPosts.js">latest source</a>.</p>
 
