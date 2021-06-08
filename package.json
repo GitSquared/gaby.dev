@@ -10,11 +10,11 @@
   },
   "devDependencies": {
     "chokidar": "^3.5.1",
-    "concurrently": "^6.0.0",
-    "highlight.js": "^10.7.1",
+    "concurrently": "^6.2.0",
+    "highlight.js": "^11.0.1",
     "lite-server": "^2.6.1",
-    "marked": "^2.0.1",
-    "ora": "^5.4.0",
-    "vercel": "^21.3.3"
+    "marked": "^2.0.7",
+    "ora": "^5.4.1",
+    "vercel": "^23.0.0"
   }
 }
