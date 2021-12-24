@@ -268,10 +268,10 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
 <span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
 </code></pre>
 <p>This makes it easy to search-and-replace the links:</p>
-<pre><code class="language-js"><span class="xml">posts.forEach(post =&gt; </span><span class="hljs-template-variable">{
+<pre><code class="language-js"><span class="language-xml">posts.forEach(post =&gt; </span><span class="hljs-template-variable">{
     <span class="hljs-keyword">if</span> (!post.unbuilt) {
         // Populate post.rendered with the already-built HTML file
-        post.rendered = await fs.readFile(post.url.substr(1)+&#x27;/index.html&#x27;, { encoding: &#x27;utf-8&#x27; }</span><span class="xml">);
+        post.rendered = await fs.readFile(post.url.substr(1)+&#x27;/index.html&#x27;, { encoding: &#x27;utf-8&#x27; }</span><span class="language-xml">);
     }
 
     // Build the new posts links HTML
@@ -281,11 +281,11 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
 
     posts.forEach(lpost =&gt; </span><span class="hljs-template-variable">{
         // Disable link for the current post
-        let link = (lpost.url === post.url) ? &#x27;disabled class=&quot;current-post&quot;&#x27; : `href=&quot;${lpost.url}</span><span class="xml">&quot;`;
+        let link = (lpost.url === post.url) ? &#x27;disabled class=&quot;current-post&quot;&#x27; : `href=&quot;${lpost.url}</span><span class="language-xml">&quot;`;
 
-        previousPosts += `<span class="hljs-tag">&lt;<span class="hljs-name">a</span> $</span></span><span class="hljs-template-variable">{link}</span><span class="xml"><span class="hljs-tag">&gt;</span>
+        previousPosts += `<span class="hljs-tag">&lt;<span class="hljs-name">a</span> $</span></span><span class="hljs-template-variable">{link}</span><span class="language-xml"><span class="hljs-tag">&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>$</span><span class="hljs-template-variable">{lpost.date.toDateString()}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>$</span><span class="hljs-template-variable">{lpost.title}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>$</span><span class="hljs-template-variable">{lpost.date.toDateString()}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>$</span><span class="hljs-template-variable">{lpost.title}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
             <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>`;
     });
@@ -304,10 +304,10 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
 <span class="hljs-keyword">let</span> previousPosts = <span class="hljs-string">&#x27;&#x27;</span>;
 
 posts.forEach(post =&gt; {
-    previousPosts += `<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;${post.url}&quot;</span>&gt;</span>
-        </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
-            </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>$</span><span class="xquery">{post.date.toDateString()}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span></span><span class="xml"> - </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>$</span><span class="xquery">{post.title}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><span class="xml">
-        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><span class="xml">
+    previousPosts += `<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;${post.url}&quot;</span>&gt;</span>
+        </span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+            </span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span>$</span><span class="language-xquery">{post.date.toDateString()}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span></span><span class="language-xml"> - </span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>$</span><span class="language-xquery">{post.title}</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><span class="language-xml">
+        <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><span class="language-xml">
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></span>`;
 });
 

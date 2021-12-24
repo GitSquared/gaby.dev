@@ -9,15 +9,62 @@ body {
 	color: black;
 }
 
+@keyframes background {
+	0% {
+		background-size: 20px 20px;
+		transform: rotate3d(1, 0, 0, 45deg) rotate3d(0,0,1, 60deg) rotate3d(0,1,0,-10deg) rotateY(0deg);
+	}
+
+	20% {
+		background-size: 20px 20px;
+		transform: rotate3d(1, 0, 0, 45deg) rotate3d(0,0,1, 60deg) rotate3d(0,1,0,-10deg) rotateY(0deg);
+	}
+
+	80% {
+		background-size: 10px 10px;
+		transform: rotate3d(1, 0, 0, 45deg) rotate3d(0,0,1, 60deg) rotate3d(0,1,0,-10deg) rotateY(70deg) rotateZ(45deg);
+	}
+
+	100% {
+		background-size: 10px 10px;
+		transform: rotate3d(1, 0, 0, 45deg) rotate3d(0,0,1, 60deg) rotate3d(0,1,0,-10deg) rotateY(70deg) rotateZ(45deg);
+	}
+}
+
+div#background {
+	position: fixed;
+	top: calc(-25vh - 60px);
+	left: -180px;
+	width: 300vh;
+	height: 300vh;
+	z-index: -1;
+	background: radial-gradient(circle at center, #000 0.9px, transparent 1px) center left, #fff;
+	background-size: 20px 20px;
+	transform: rotate3d(1, 0, 0, 45deg) rotate3d(0,0,1, 60deg) rotate3d(0,1,0,-10deg);
+	animation: background 10s ease-in-out 1s infinite alternate;
+}
+
+@media (orientation: portrait) {
+	div#background {
+		top: -55vh;
+		left: -50vh;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	div#background {
+		animation: none;
+	}
+}
+
 a {
-	color: black;
+	color: rgba(0,0,0,0.5);
 	text-decoration: underline;
-	opacity: 0.5;
-	transition: opacity 0.2s ease-out;
+	transition: color 0.2s ease-out;
 }
 
 a:hover, a:active {
-	opacity: 1;
+	color: rgba(0,0,0,1);
 }
 
 section#card {
@@ -30,7 +77,6 @@ section#card article {
 
 section#card article img {
 	width: 10em;
-	border-radius: 23%;
 }
 
 section#card aside {
@@ -41,16 +87,23 @@ section#card aside {
 section#card aside h1 {
 	margin-bottom: 0;
 	font-size: 1.6em;
+	background: white;
+	width: min-content;
+	/* padding: 0.5rem; */
+	/* filter: invert(1); */
 }
 
 section#card aside h4 {
 	margin: 0 0 1.2em;
 	font-size: 1.2em;
 	opacity: 0.6;
+	/* padding: 0.5rem 0; */
 }
 
 section#card aside p {
 	white-space: pre-line;
+	background: white;
+	padding: 0.5rem;
 }
 
 section#card aside p a {
@@ -59,7 +112,7 @@ section#card aside p a {
 }
 
 section#card aside p a:hover, section#card aside p a:active {
-	color: #00ff97;
+	color: #22e39e;
 }
 
 footer {
@@ -76,14 +129,30 @@ footer nav p {
 	line-height: 1.3;
 }
 
+footer nav:last-child p {
+	display: grid;
+	grid-template: "heading heading" auto
+						"content content" auto / auto auto;
+   align-items: center;
+   justify-items: start;
+}
+
 footer nav:last-child span {
 	display: block;
 	text-align: left;
+	grid-area: heading;
+}
+
+footer nav span {
+	white-space: nowrap;
+	background: white;
+	padding: 0.5rem;
+	width: min-content;
 }
 
 footer nav a.social-icons-links {
 	line-height: 1.9;
-	filter: brightness(0%);
+	filter: brightness(0%) contrast(0%);
 	transition: filter 0.2s ease-out;
 }
 
@@ -91,6 +160,27 @@ footer nav a.social-icons-links img {
 	height: 1.5rem;
 	width: 1.5rem;
 	vertical-align: middle;
+}
+
+footer nav:last-child p {
+	line-height: 2;
+	max-width: 280px;
+}
+
+footer .linksmess {
+	grid-area: content;
+	background: white;
+	padding: 0.5rem;
+	width: min-content;
+	min-width: 160px;
+	max-width: 250px;
+	text-align: left;
+	line-height: 1.6;
+}
+
+footer .linksmess a {
+	display: inline-block;
+	margin-right: 0.5rem;
 }
 
 footer nav a.social-icons-links:hover, footer nav a.social-icons-links:active {
@@ -114,7 +204,13 @@ footer nav a.social-icons-links:hover, footer nav a.social-icons-links:active {
 	}
 
 	section#card aside {
+		margin-top: 1rem;
 		margin-right: 1em;
+	}
+
+	section#card aside h1, section#card aside h4 {
+		margin: 0 auto;
+		text-align: center;
 	}
 
 	footer {
@@ -126,7 +222,7 @@ footer nav a.social-icons-links:hover, footer nav a.social-icons-links:active {
 	}
 
 	footer nav:last-child span {
-		text-align: center;
+		margin: 0 auto;
 		margin-bottom: 0.5rem;
 	}
 
@@ -136,5 +232,14 @@ footer nav a.social-icons-links:hover, footer nav a.social-icons-links:active {
 
 	footer nav a.social-icons-links img {
 		height: 1.7rem;
+	}
+
+	footer nav:last-child p {
+		justify-items: center;
+	}
+
+	footer .linksmess {
+		text-align: center;
+		margin: 0 auto;
 	}
 }

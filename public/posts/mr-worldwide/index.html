@@ -106,21 +106,21 @@
 <p>The first step in the tool&#39;s workflow is to get a web font file from the user and load it up into the browser so it can be tested.</p>
 <p>I wanted to make an intuitive, drag &amp; drop experience - something I never actually looked into before - and it turned out to be really easy to implement, considering this tool only targets ultra-modern browsers so I didn&#39;t have to worry too much about compatibility.</p>
 <p>First, we use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API">drag&amp;drop HTML API</a> and specifically the <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer">DataTransfer property</a> of the <code>drop</code> event to get a file from the user.</p>
-<pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initApp</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">var</span> dropper = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;dragdrop&quot;</span>);
-    <span class="hljs-keyword">var</span> icon = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;dragdrop-icon&quot;</span>);
+<pre><code class="language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">initApp</span>(<span class="hljs-params"></span>) {
+    <span class="hljs-keyword">var</span> dropper = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;dragdrop&quot;</span>);
+    <span class="hljs-keyword">var</span> icon = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;dragdrop-icon&quot;</span>);
 
-    dropper.ondragover = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-        e.preventDefault();
+    dropper.<span class="hljs-property">ondragover</span> = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+        e.<span class="hljs-title function_">preventDefault</span>();
     };
-    dropper.ondrop = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
-        e.preventDefault();
+    dropper.<span class="hljs-property">ondrop</span> = <span class="hljs-function"><span class="hljs-params">e</span> =&gt;</span> {
+        e.<span class="hljs-title function_">preventDefault</span>();
 
-        dropper.ondrop = <span class="hljs-literal">null</span>;
+        dropper.<span class="hljs-property">ondrop</span> = <span class="hljs-literal">null</span>;
 
-        <span class="hljs-keyword">var</span> dt = e.dataTransfer;
-        <span class="hljs-keyword">if</span> (dt.files.length !== <span class="hljs-number">1</span>) {
-            icon.setAttribute(<span class="hljs-string">&quot;src&quot;</span>, <span class="hljs-string">&quot;assets/no.svg&quot;</span>);
+        <span class="hljs-keyword">var</span> dt = e.<span class="hljs-property">dataTransfer</span>;
+        <span class="hljs-keyword">if</span> (dt.<span class="hljs-property">files</span>.<span class="hljs-property">length</span> !== <span class="hljs-number">1</span>) {
+            icon.<span class="hljs-title function_">setAttribute</span>(<span class="hljs-string">&quot;src&quot;</span>, <span class="hljs-string">&quot;assets/no.svg&quot;</span>);
             <span class="hljs-built_in">setTimeout</span>(initApp, <span class="hljs-number">1000</span>);
         } <span class="hljs-keyword">else</span> {
             <span class="hljs-comment">// We have the file in dt.files[0]</span>
@@ -152,13 +152,13 @@ window.testFont = <span class="hljs-keyword">new</span> <span class="hljs-built_
 </code></pre>
 <p>Creating a new FontFace object never raises an error with the current spec/implementations, but that doesn&#39;t mean it worked all right: we didn&#39;t do any input check, so we&#39;re not even sure that the file provided is indeed a loadable web font.</p>
 <p>Thankfully, FontFace objects have a <code>status</code> property - it can take the values <code>&quot;unloaded&quot;</code>, <code>&quot;loading&quot;</code>, <code>&quot;loaded&quot;</code>, or <code>&quot;error&quot;</code> (at time of writing, keep in mind this is not a fully stable API yet). By checking for <code>FontFace.status === &quot;error&quot;</code>, we can use the FontFace constructor as an input validator, like so:</p>
-<pre><code class="language-js"><span class="hljs-keyword">window</span>.testFont = <span class="hljs-built_in">new</span> FontFace(&quot;testFont&quot;, buffer);
-<span class="hljs-keyword">if</span> (<span class="hljs-keyword">window</span>.testFont.status === &quot;error&quot;) {
-    // Bad font file <span class="hljs-keyword">or</span> unsupported <span class="hljs-keyword">format</span>, <span class="hljs-keyword">restart</span>.
-    icon.setAttribute(&quot;src&quot;, &quot;assets/no.svg&quot;);
-    setTimeout(initApp, <span class="hljs-number">1000</span>);
+<pre><code class="language-js">window.testFont = <span class="hljs-keyword">new</span> <span class="hljs-constructor">FontFace(<span class="hljs-string">&quot;testFont&quot;</span>, <span class="hljs-params">buffer</span>)</span>;
+<span class="hljs-keyword">if</span> (window.testFont.status<span class="hljs-operator"> === </span><span class="hljs-string">&quot;error&quot;</span>) {
+    <span class="hljs-comment">// Bad font file or unsupported format, restart.</span>
+    icon.set<span class="hljs-constructor">Attribute(<span class="hljs-string">&quot;src&quot;</span>, <span class="hljs-string">&quot;assets/no.svg&quot;</span>)</span>;
+    set<span class="hljs-constructor">Timeout(<span class="hljs-params">initApp</span>, 1000)</span>;
 } <span class="hljs-keyword">else</span> {
-    // <span class="hljs-keyword">window</span>.testFont <span class="hljs-keyword">is</span> <span class="hljs-keyword">valid</span> <span class="hljs-keyword">and</span> ready <span class="hljs-keyword">to</span> be loaded.
+    <span class="hljs-comment">// window.testFont is valid and ready to be loaded.</span>
 }
 </code></pre>
 <p>Now that we&#39;re sure everything is all right, we can load the font using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet">FontFaceSet API</a>. The document-wide FontFaceSet can be accessed with <code>document.fonts</code>.</p>
@@ -206,19 +206,19 @@ document.fonts.<span class="hljs-keyword">load</span>(&quot;12px testFont&quot;)
 </code></pre>
 <p>And here&#39;s the actual testing:</p>
 <pre><code class="language-js"><span class="hljs-comment">// Get an empty &#x27;p&#x27; element to test our font.</span>
-<span class="hljs-keyword">var</span> tester = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&quot;tester&quot;</span>);
+<span class="hljs-keyword">var</span> tester = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;tester&quot;</span>);
 
 <span class="hljs-comment">/* We linked the Blank font in our HTML, but since no text uses
 it on the page, the browser may not have loaded it yet. */</span>
-<span class="hljs-built_in">document</span>.fonts.load(<span class="hljs-string">&quot;12px Blank&quot;</span>).then(<span class="hljs-function">() =&gt;</span> {
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">fonts</span>.<span class="hljs-title function_">load</span>(<span class="hljs-string">&quot;12px Blank&quot;</span>).<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> {
     
     <span class="hljs-comment">// We&#x27;ll use a global object to store the results of our tests.</span>
-    <span class="hljs-built_in">window</span>.testFontUnicodeCoverage = {};
+    <span class="hljs-variable language_">window</span>.<span class="hljs-property">testFontUnicodeCoverage</span> = {};
 
     <span class="hljs-comment">/* window.scripts is the object containing the JSON data
     listing unicode ranges by scripts (writing systems), the
     following code allows us to loop through each script. */</span>
-    <span class="hljs-built_in">Object</span>.keys(<span class="hljs-built_in">window</span>.scripts).forEach(<span class="hljs-function"><span class="hljs-params">scriptName</span> =&gt;</span> {
+    <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">keys</span>(<span class="hljs-variable language_">window</span>.<span class="hljs-property">scripts</span>).<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">scriptName</span> =&gt;</span> {
         
         <span class="hljs-comment">// Will store the number of succesfully rendered glyphs.</span>
         <span class="hljs-keyword">let</span> success = <span class="hljs-number">0</span>;
@@ -226,7 +226,7 @@ it on the page, the browser may not have loaded it yet. */</span>
         <span class="hljs-keyword">let</span> divisor = <span class="hljs-number">0</span>;
 
         <span class="hljs-comment">// Loop through each unicode range used in this script:</span>
-        <span class="hljs-built_in">window</span>.scripts[scriptName].forEach(<span class="hljs-function"><span class="hljs-params">range</span> =&gt;</span> {
+        <span class="hljs-variable language_">window</span>.<span class="hljs-property">scripts</span>[scriptName].<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">range</span> =&gt;</span> {
             
             <span class="hljs-comment">/* Add the total number of glyphs in this range
             to our divisor. */</span>
@@ -236,11 +236,11 @@ it on the page, the browser may not have loaded it yet. */</span>
             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = range[<span class="hljs-number">0</span>]; i &lt;= range[<span class="hljs-number">1</span>]; i++) {
 
                 <span class="hljs-comment">// Write the character to our test node.</span>
-                tester.textContent = <span class="hljs-built_in">String</span>.fromCodePoint(i);
+                tester.<span class="hljs-property">textContent</span> = <span class="hljs-title class_">String</span>.<span class="hljs-title function_">fromCodePoint</span>(i);
 
                 <span class="hljs-comment">/* If a character is rendered, increment the
                 number of successfully rendered glyphs. */</span>
-                <span class="hljs-keyword">if</span> (tester.offsetWidth &gt; <span class="hljs-number">0</span>) {
+                <span class="hljs-keyword">if</span> (tester.<span class="hljs-property">offsetWidth</span> &gt; <span class="hljs-number">0</span>) {
                     success++;
                 }
              }
@@ -250,28 +250,28 @@ it on the page, the browser may not have loaded it yet. */</span>
         of this writing system that is supported by our
         test font. */</span>
         <span class="hljs-keyword">let</span> successRate = success / divisor;
-        <span class="hljs-built_in">window</span>.testFontUnicodeCoverage[s] = successRate;
+        <span class="hljs-variable language_">window</span>.<span class="hljs-property">testFontUnicodeCoverage</span>[s] = successRate;
     });
 });
 </code></pre>
 <p><em>You might be interested in learning more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys">Object.keys</a>, which is used to loop through the values of an object, and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint">String.fromCodePoint</a>, which allows creating a string from unicode character codes in hexa- or decimal format.</em></p>
 <p>The test results are stored in a global object <code>window.testFontUnicodeCoverage</code> that gives the percentage of script support for each writing system, like so:</p>
-<pre><code class="language-json">{
-    <span class="hljs-attr">&quot;arabic&quot;</span>: <span class="hljs-number">0.17299820954677847</span>,
-    <span class="hljs-attr">&quot;armenian&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;brahmic&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;canadianSyllabic&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;cjk&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;cyrillic&quot;</span>: <span class="hljs-number">0.5146058024865757</span>,
-    <span class="hljs-attr">&quot;ethiopic&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;gana+kana&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;georgian&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;greek&quot;</span>: <span class="hljs-number">0.7601562335069727</span>,
-    <span class="hljs-attr">&quot;hangul&quot;</span>: <span class="hljs-number">0</span>,
-    <span class="hljs-attr">&quot;hebrew&quot;</span>: <span class="hljs-number">0.8966550340600317</span>,
-    <span class="hljs-attr">&quot;latin&quot;</span>: <span class="hljs-number">0.9126691936883361</span>,
-    <span class="hljs-attr">&quot;thaana&quot;</span>: <span class="hljs-number">0.17299820954677847</span>
-}
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;arabic&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.17299820954677847</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;armenian&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;brahmic&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;canadianSyllabic&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cjk&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;cyrillic&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.5146058024865757</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;ethiopic&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;gana+kana&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;georgian&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;greek&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.7601562335069727</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hangul&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;hebrew&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.8966550340600317</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;latin&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.9126691936883361</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;thaana&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0.17299820954677847</span>
+<span class="hljs-punctuation">}</span>
 </code></pre>
 <h2 id="03-displaying-results">#03: Displaying results</h2>
 <p align="center">
@@ -280,16 +280,16 @@ it on the page, the browser may not have loaded it yet. */</span>
 
 <p>To display the results on a world map, I made an <code>svg</code> element representing a world map with countries outlined and <code>class</code> attributes on each country with the name of the most used writing system there.</p>
 <p>The JS script can then apply the right colors simply by appending a style element with calculated <code>opacity</code> values:</p>
-<pre><code class="language-js"><span class="hljs-keyword">let</span> style = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;style&quot;</span>);
-style.innerHTML = <span class="hljs-string">`
+<pre><code class="language-js"><span class="hljs-keyword">let</span> style = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;style&quot;</span>);
+style.<span class="hljs-property">innerHTML</span> = <span class="hljs-string">`
     .latin {
         fill: #0076ff;
-        fill-opacity: <span class="hljs-subst">${<span class="hljs-built_in">window</span>.testFontUnicodeCoverage.latin}</span>;
+        fill-opacity: <span class="hljs-subst">${<span class="hljs-variable language_">window</span>.testFontUnicodeCoverage.latin}</span>;
     }
     (...)
 `</span>;
 
-<span class="hljs-built_in">document</span>.body.appendChild(style);
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(style);
 </code></pre>
 <p>The color scale at the bottom was made simply with a CSS <code>linear-gradient</code> background in a <code>span</code> element.</p>
 <p>And that&#39;s it! You can <a href="https://gitsquared.github.io/mrworldwide">test the tool</a> or <a href="https://github.com/GitSquared/mrworldwide">look at the code on GitHub</a>.</p>
