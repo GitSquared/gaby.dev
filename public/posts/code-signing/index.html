@@ -1,120 +1,272 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Code Signing & why it (currently) sucks - Gaby's blog</title>
 
 		<!-- seo -->
-		<meta name="author" content="Gaby 'Squared' SAILLARD">
-		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
-		<meta name="keywords" content="blog,developer,personal">
+		<meta name="author" content="Gabriel Saillard" />
+		<meta name="description" content="Personal website" />
+		<meta name="keywords" content="blog,developer,personal" />
 
 		<!-- open graph -->
-		<meta property="og:title" content="Code Signing & why it (currently) sucks - Gaby's blog">
-		<meta property="og:type" content="article">
-		<meta property="og:image" content="https://gaby.dev/pics/avatar.jpg">
-		<meta property="og:description" content="An article on Gaby's personal blog.">
-		<meta property="og:url" content="https://gaby.dev/posts/code-signing">
-		<meta property="og:locale" content="en_US">
-		<meta property="og:site_name" content="gaby.dev">
-		
+		<meta
+			property="og:title"
+			content="Code Signing & why it (currently) sucks - Gaby's blog"
+		/>
+		<meta property="og:type" content="article" />
+		<meta
+			property="og:description"
+			content="An article on Gaby's personal blog."
+		/>
+		<meta property="og:url" content="https://gaby.dev/posts/code-signing" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="gaby.dev" />
+
 		<!-- display -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<!-- links -->
-		<base target="_blank">
+		<base target="_blank" />
 
 		<!-- icon -->
-		<link rel="icon" type="image/png" href="/pics/favicon-16x16.png" sizes="16x16">
-		<link rel="icon" type="image/png" href="/pics/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/pics/favicon.png" sizes="128x128">
-		
-		<!-- stylesheets -->
-		<link rel="stylesheet" href="/styles/water.css">
-		<link rel="stylesheet" href="/styles/syntax.css">
-		<link rel="stylesheet" href="/styles/posts.css">
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-16x16.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-32x32.png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon.png"
+			sizes="128x128"
+		/>
 
-		<script async defer data-domain="gaby.dev" src="https://plausible.gaby.dev/js/plausible.js"></script>
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="/styles/water.css" />
+		<link rel="stylesheet" href="/styles/syntax.css" />
+		<link rel="stylesheet" href="/styles/posts.css" />
+
+		<script
+			async
+			defer
+			data-domain="gaby.dev"
+			src="https://plausible.gaby.dev/js/plausible.js"
+		></script>
 	</head>
 	<body>
 		<script>
-		  (async function() {
-			 if (fetch) {
-				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
-				await fetch('https://reporter.gaby.dev/api/report/'+ref);
-			 }
-		  })();
+			(async function () {
+				if (fetch) {
+					const ref = document.referrer
+						? document.referrer.replace(/\//g, "%2F")
+						: "noref";
+					await fetch("https://reporter.gaby.dev/api/report/" + ref);
+				}
+			})();
 		</script>
-		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+		<noscript
+			><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""
+		/></noscript>
 
 		<aside>
 			<aside>
 				<h1>Gaby</h1>
 				<h4>@Squared</h4>
 			</aside>
-			<hr>
+			<hr />
 			<nav>
 				<h1>Latest posts</h1>
 				<ul>
-<!-- POSTS_LINKS -->
-<a href="/posts/golden-age" target="_self">
-				<li>
-					<h4>Sun Aug 23 2020</h4><br><h1>Golden Age</h1>
-				</li>
-			</a><a href="/posts/working-with-beginners" target="_self">
-				<li>
-					<h4>Tue May 05 2020</h4><br><h1>Thoughts on working with beginners</h1>
-				</li>
-			</a><a href="/posts/static-site-generator" target="_self">
-				<li>
-					<h4>Sun Sep 15 2019</h4><br><h1>Writing a static blog generator</h1>
-				</li>
-			</a><a href="/posts/edex-remote-code-disclosure" target="_self">
-				<li>
-					<h4>Sun May 19 2019</h4><br><h1>eDEX-UI Remote Code Injection Disclosure</h1>
-				</li>
-			</a><a href="/posts/mr-worldwide" target="_self">
-				<li>
-					<h4>Sun Jan 20 2019</h4><br><h1>Introducing Mr.Worldwide</h1>
-				</li>
-			</a><a disabled class="current-post">
-				<li>
-					<h4>Fri Dec 28 2018</h4><br><h1>Code Signing & why it (currently) sucks</h1>
-				</li>
-			</a>
-<!-- POSTS_LINKS -->
+					<!-- POSTS_LINKS -->
+					<a href="/posts/golden-age" target="_self">
+						<li>
+							<h4>Sun Aug 23 2020</h4>
+							<br />
+							<h1>Golden Age</h1>
+						</li> </a
+					><a href="/posts/working-with-beginners" target="_self">
+						<li>
+							<h4>Tue May 05 2020</h4>
+							<br />
+							<h1>Thoughts on working with beginners</h1>
+						</li> </a
+					><a href="/posts/static-site-generator" target="_self">
+						<li>
+							<h4>Sun Sep 15 2019</h4>
+							<br />
+							<h1>Writing a static blog generator</h1>
+						</li> </a
+					><a href="/posts/edex-remote-code-disclosure" target="_self">
+						<li>
+							<h4>Sun May 19 2019</h4>
+							<br />
+							<h1>eDEX-UI Remote Code Injection Disclosure</h1>
+						</li> </a
+					><a href="/posts/mr-worldwide" target="_self">
+						<li>
+							<h4>Sun Jan 20 2019</h4>
+							<br />
+							<h1>Introducing Mr.Worldwide</h1>
+						</li> </a
+					><a disabled class="current-post">
+						<li>
+							<h4>Fri Dec 28 2018</h4>
+							<br />
+							<h1>Code Signing & why it (currently) sucks</h1>
+						</li>
+					</a>
+					<!-- POSTS_LINKS -->
 				</ul>
 			</nav>
-			<hr>
+			<hr />
 			<p><a href="/" target="_self">go back to homepage</a></p>
 		</aside>
 		<article>
 			<h1>Code Signing & why it (currently) sucks</h1>
 			<h4>Published Fri Dec 28 2018</h4>
-			<hr>
-			<p><strong>tl;dr: Desktop software signing is like SSL used to be not so long ago: both extremely interesting for end-users and developers alike, but too expensive for anyone not running a business.</strong></p>
-<hr>
-<p>Earlier today, I was looking at the issues left on <a href="https://github.com/GitSquared/edex-ui">eDEX-UI</a>, and decided to work on <a href="https://github.com/GitSquared/edex-ui/issues/278">#278</a> - &quot;Implementing an internal self-update mechanism&quot;.</p>
-<p>After a bit of thinking and research, I ended up dropping the idea, even though it would in theory be easy to implement: there is the nice, built-in Electron <a href="https://electronjs.org/docs/api/auto-updater">autoUpdate</a> API, but I&#39;d need to code-sign the releases first, and while there is also the <a href="https://www.electron.build/auto-update">electron-builder way</a> that does not require signing, I just don&#39;t feel that the added security risks are worth it.</p>
-<p>A little background explanation: Code-signing is a process by which a developer use certified cryptographic keys to digitally sign binaries before shipping software to end-users. The OS verifies that the signature is valid before installing/running the software, and it ensures that the code hasn&#39;t been messed with between the original release and the version downloaded by the user.</p>
-<p>The whole thing drastically improves security, especially in context of self-updating apps that may be susceptible to mitm/fake server attacks; you may wonder why it hasn&#39;t been implemented on eDEX yet - indeed, when you try to install it on either macOS or Windows, you are prompted with a warning pop-up telling you that you&#39;re trying to install unverified software published by an unknown developer (that would be me).</p>
-<p align="center">
-    <img alt="macOS warning popup for unsigned apps" src="/posts/code-signing/res/macOS-popup.png"/>
-</p>
+			<hr />
+			<p>
+				<strong
+					>tl;dr: Desktop software signing is like SSL used to be not so long
+					ago: both extremely interesting for end-users and developers alike,
+					but too expensive for anyone not running a business.</strong
+				>
+			</p>
+			<hr />
+			<p>
+				Earlier today, I was looking at the issues left on
+				<a href="https://github.com/GitSquared/edex-ui">eDEX-UI</a>, and decided
+				to work on
+				<a href="https://github.com/GitSquared/edex-ui/issues/278">#278</a> -
+				&quot;Implementing an internal self-update mechanism&quot;.
+			</p>
+			<p>
+				After a bit of thinking and research, I ended up dropping the idea, even
+				though it would in theory be easy to implement: there is the nice,
+				built-in Electron
+				<a href="https://electronjs.org/docs/api/auto-updater">autoUpdate</a>
+				API, but I&#39;d need to code-sign the releases first, and while there
+				is also the
+				<a href="https://www.electron.build/auto-update"
+					>electron-builder way</a
+				>
+				that does not require signing, I just don&#39;t feel that the added
+				security risks are worth it.
+			</p>
+			<p>
+				A little background explanation: Code-signing is a process by which a
+				developer use certified cryptographic keys to digitally sign binaries
+				before shipping software to end-users. The OS verifies that the
+				signature is valid before installing/running the software, and it
+				ensures that the code hasn&#39;t been messed with between the original
+				release and the version downloaded by the user.
+			</p>
+			<p>
+				The whole thing drastically improves security, especially in context of
+				self-updating apps that may be susceptible to mitm/fake server attacks;
+				you may wonder why it hasn&#39;t been implemented on eDEX yet - indeed,
+				when you try to install it on either macOS or Windows, you are prompted
+				with a warning pop-up telling you that you&#39;re trying to install
+				unverified software published by an unknown developer (that would be
+				me).
+			</p>
+			<p align="center">
+				<img
+					alt="macOS warning popup for unsigned apps"
+					src="/posts/code-signing/res/macOS-popup.png"
+				/>
+			</p>
 
-<p>Well, the &quot;problem&quot; is, to get a certified key to sign your code with, you need to grab your wallet. Apple has the all-included <a href="https://developer.apple.com/programs">Apple Developer Program</a>, which costs <strong>99 US$/year</strong>. Think that&#39;s bad? It&#39;s really not.</p>
-<p>In the Microsoft world - and keep in mind <a href="https://en.wikipedia.org/wiki/Usage_share_of_operating_systems#Desktop_and_laptop_computers">Windows has &gt;80% of the market shares in desktop OSs</a> (sadly) - certificates have to be obtained through external providers like <a href="https://www.digicert.com/code-signing/microsoft-authenticode.htm">Digicert</a>, for instance, who will happily provide you with nothing more than the certificate at the wonderful cost of &quot;just&quot; <strong>474 US$/year</strong>.</p>
-<p>Now, as a young student maintaining a piece of free and open-source software that has got 30 000 downloads in less than a month, I&#39;m not exactly swimming in money right now - there&#39;s an operating cost, both in server fees and valuable time, not that I&#39;m complaining but hey. So 500$ a year for signing builds is a big no. I&#39;d like to eat something else than ramen noodles first, thank you.</p>
-<p>You might think that I&#39;m a cheap bastard and that 500 bucks a year isn&#39;t all that much to have a few companies verify my identity and allow me to publish software to a global audience of a billion user. And to some extent, you&#39;ll be right.</p>
-<p>But here&#39;s why I personnally think the code-signing system is broken: <em><strong>code-signing is a valuable security feature, and by putting it behind paywalls, small applications like eDEX are (voluntarily) made more dangerous to use.</strong></em></p>
-<p>If you were hosting websites a few years back, you might remember that even for small ones, if you wanted to provide your users with HTTPS encryption - which is by now pretty much a requirement for any website that doesn&#39;t want to <a href="https://www.theregister.co.uk/2018/02/08/google_chrome_http_shame/">get flagged by browsers</a> - you had to buy an SSL certificate and those used to be crazy expensive,  hundreds a year for the basic stuff with no identity verification.</p>
-<p align="center">
-    <img alt="Letsencrypt logo" src="/posts/code-signing/res/Letsencrypt.png"/>
-</p>
+			<p>
+				Well, the &quot;problem&quot; is, to get a certified key to sign your
+				code with, you need to grab your wallet. Apple has the all-included
+				<a href="https://developer.apple.com/programs"
+					>Apple Developer Program</a
+				>, which costs <strong>99 US$/year</strong>. Think that&#39;s bad?
+				It&#39;s really not.
+			</p>
+			<p>
+				In the Microsoft world - and keep in mind
+				<a
+					href="https://en.wikipedia.org/wiki/Usage_share_of_operating_systems#Desktop_and_laptop_computers"
+					>Windows has &gt;80% of the market shares in desktop OSs</a
+				>
+				(sadly) - certificates have to be obtained through external providers
+				like
+				<a
+					href="https://www.digicert.com/code-signing/microsoft-authenticode.htm"
+					>Digicert</a
+				>, for instance, who will happily provide you with nothing more than the
+				certificate at the wonderful cost of &quot;just&quot;
+				<strong>474 US$/year</strong>.
+			</p>
+			<p>
+				Now, as a young student maintaining a piece of free and open-source
+				software that has got 30 000 downloads in less than a month, I&#39;m not
+				exactly swimming in money right now - there&#39;s an operating cost,
+				both in server fees and valuable time, not that I&#39;m complaining but
+				hey. So 500$ a year for signing builds is a big no. I&#39;d like to eat
+				something else than ramen noodles first, thank you.
+			</p>
+			<p>
+				You might think that I&#39;m a cheap bastard and that 500 bucks a year
+				isn&#39;t all that much to have a few companies verify my identity and
+				allow me to publish software to a global audience of a billion user. And
+				to some extent, you&#39;ll be right.
+			</p>
+			<p>
+				But here&#39;s why I personnally think the code-signing system is
+				broken:
+				<em
+					><strong
+						>code-signing is a valuable security feature, and by putting it
+						behind paywalls, small applications like eDEX are (voluntarily) made
+						more dangerous to use.</strong
+					></em
+				>
+			</p>
+			<p>
+				If you were hosting websites a few years back, you might remember that
+				even for small ones, if you wanted to provide your users with HTTPS
+				encryption - which is by now pretty much a requirement for any website
+				that doesn&#39;t want to
+				<a
+					href="https://www.theregister.co.uk/2018/02/08/google_chrome_http_shame/"
+					>get flagged by browsers</a
+				>
+				- you had to buy an SSL certificate and those used to be crazy
+				expensive, hundreds a year for the basic stuff with no identity
+				verification.
+			</p>
+			<p align="center">
+				<img
+					alt="Letsencrypt logo"
+					src="/posts/code-signing/res/Letsencrypt.png"
+				/>
+			</p>
 
-<p>Then, in 2016, <a href="https://letsencrypt.org">letsencrypt</a> came along. Suddenly, basic SSL certificates were free, and everyone started implementing HTTPS if they hadn&#39;t done so already. <strong>No need to say that the World Wide Web is a much safer place since then.</strong></p>
-<p>So perhaps one day we&#39;ll have the letsencrypt of code-signing and desktop software will be safer for everyone. Until then, I&#39;ll have to keep shipping unsigned binary releases.</p>
-
+			<p>
+				Then, in 2016, <a href="https://letsencrypt.org">letsencrypt</a> came
+				along. Suddenly, basic SSL certificates were free, and everyone started
+				implementing HTTPS if they hadn&#39;t done so already.
+				<strong
+					>No need to say that the World Wide Web is a much safer place since
+					then.</strong
+				>
+			</p>
+			<p>
+				So perhaps one day we&#39;ll have the letsencrypt of code-signing and
+				desktop software will be safer for everyone. Until then, I&#39;ll have
+				to keep shipping unsigned binary releases.
+			</p>
 		</article>
 	</body>
 </html>

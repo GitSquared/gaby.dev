@@ -97,7 +97,7 @@ body > section > p a:hover {
 	body > section > nav {
 		padding: 0 1em;
 	}
-	
+
 	body > section > nav > ul {
 		align-items: center;
 	}
@@ -109,7 +109,8 @@ body > section > p a:hover {
 		color: white;
 	}
 
-	body > section > nav > ul li > h4, body > section > nav > ul li > h1 {
+	body > section > nav > ul li > h4,
+	body > section > nav > ul li > h1 {
 		display: block;
 		line-height: 1.1;
 		color: black;

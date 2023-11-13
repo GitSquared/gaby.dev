@@ -1,83 +1,84 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
-		<title>Gaby (Gabriel Saillard)</title>
+		<title>Gaby's homepage</title>
 
 		<!-- seo -->
-		<meta name="author" content="Gabriel Saillard">
-		<meta name="description" content="Gabriel is a software engineer and open-source maintainer based in Paris. This is his personal website.">
+		<meta name="author" content="Gabriel Saillard" />
+		<meta
+			name="description"
+			content="Gabriel is a software engineer and open-source maintainer based in Paris. This is his personal website."
+		/>
 
 		<!-- open graph -->
-		<meta property="og:title" content="Gaby (Gabriel Saillard)">
-		<meta property="og:type" content="website">
-		<meta property="og:image" content="https://gaby.dev/pics/avatar.jpg">
-		<meta property="og:description" content="Gabriel is a software engineer and open-source maintainer based in Paris. This is his personal website.">
-		<meta property="og:url" content="https://gaby.dev">
-		<meta property="og:locale" content="en_US">
-		<meta property="og:site_name" content="gaby.dev">
+		<meta property="og:title" content="Gabriel Saillard" />
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:description"
+			content="Gabriel is a software engineer based in Paris. This is his personal website."
+		/>
+		<meta property="og:url" content="https://gaby.dev" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="gaby.dev" />
 
 		<!-- display -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- icon -->
-		<link rel="icon" type="image/png" href="pics/favicon-16x16.png" sizes="16x16">
-		<link rel="icon" type="image/png" href="pics/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="pics/favicon.png" sizes="128x128">
+		<link
+			rel="icon"
+			type="image/png"
+			href="pics/favicon-16x16.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="pics/favicon-32x32.png"
+			sizes="32x32"
+		/>
+		<link rel="icon" type="image/png" href="pics/favicon.png" sizes="128x128" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet">
 
 		<!-- stylesheets -->
-		<link rel="stylesheet" href="styles/index.css">
+		<link rel="stylesheet" href="styles/index.css" />
 	</head>
 	<body>
-		<script>
-		  (async function() {
-			 if (fetch) {
-				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
-				await fetch('https://reporter.gaby.dev/api/report/'+ref);
-			 }
-		  })();
-		</script>
-		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+		<div id="painting-shadow">
+			<svg width="0" height="0">
+			  <defs>
+				 <clipPath id="scaledClip" clipPathUnits="objectBoundingBox">
+					<path d="m 0.259,0 h 0.482 c 0.144,0 0.259,0.114 0.259,0.257 v 0.363 c 0,0.036 -0.007,0.069 -0.02,0.1 -0.007,0.015 0.002,0.111 -0.011,0.111 -0.011,0 0.003,-0.065 -0.021,-0.037 -0.019,0.021 0.001,0.105 -0.026,0.105 -0.013,-0 -0.003,-0.053 -0.013,-0.052 -0.043,0.004 -0.016,0.113 -0.044,0.114 -0.014,0 -0.006,-0.111 -0.022,-0.105 -0.031,0.013 -0.065,0.02 -0.101,0.02 -0.077,0.001 -0.081,-0.001 -0.099,-0.001 -0.027,-0 -0.029,0.074 -0.04,0.075 -0.017,-0.001 -0.005,-0.074 -0.027,-0.075 -0.021,-0.001 -0.193,0.001 -0.193,0.001 C 0.336,0.876 0.357,1.002 0.326,1 0.293,0.999 0.333,0.88 0.259,0.877 0.116,0.87 0,0.762 0,0.62 V 0.257 C 0,0.115 0.116,0 0.259,0 Z"/>
+				 </clipPath>
+			  </defs>
+			</svg>
 
-		<div id="background"></div>
+			<div id="painting"></div>
+		</div>
 
-		<section id="card">
-			<article>
-				<img src="pics/avatar-transparent.png" alt="A picture of me.">
-			</article>
-			<aside>
-				<h1>Gaby</h1>
-				<h4>@Squared</h4>
-				<p>Architect of experimental software.
-					Engineer at <a target="blank" href="https://alan.com">Alan</a>.
-				</p>
-			</aside>
+		<section id="content">
+			<h1>gaby</h1>
+			<p>
+				is having fun with computers<br />
+			</p>
+			<p id="bio">
+				currently: engineer at <a target="_blank" href="https://alan.com">Alan</a><br/>
+				previously:
+				cofounder at <a target="_blank" href="https://twitter.com/untitledmapapp">untitled map app</a>,
+				open-source <a target="_blank" href="github">maintainer</a>,
+				sci-fi UI <a target="_blank" href="edex">experiments</a>,
+				application-embedded cryptography, some bits of music
+			</p>
+			<p id="talk">
+				<a href="email" target="_blank">talk to me</a>
+			</p>
+			<footer>
+				<p>with love from paris, fr</p>
+			</footer>
 		</section>
-		<footer>
-			<nav>
-				<p>
-					<span>Find me on:</span>
-					<br>
-					<a class="social-icons-links" href="https://twitter.com/GitSquared" target="_blank"><img src="pics/icons/twitter.svg" alt="Twitter" title="Twitter"></a>
-					-
-					<a class="social-icons-links" href="https://github.com/GitSquared" target="_blank"><img src="pics/icons/github.svg" alt="GitHub" title="GitHub"></a>
-					<br>
-					<a class="social-icons-links" href="https://www.linkedin.com/in/gabriel-saillard/" target="_blank"><img src="pics/icons/linkedin.svg" alt="LinkedIn" title="LinkedIn"></a>
-					-
-					<a class="social-icons-links" href="email" target="_blank"><img src="pics/icons/at-solid.svg" alt="Email" title="Email"></a>
-				</p>
-			</nav>
-			<nav>
-				<p>
-					<span>More stuff:</span>
-					<div class="linksmess">
-						<a href="/posts/">Blog</a>/
-						<a href="https://www.linkedin.com/in/gabriel-saillard/" target="_blank">Resume / CV</a>/
-						<a href="donate">Buy me a coffee</a>
-					</div>
-				</p>
-			</nav>
-		</footer>
-
 	</body>
 </html>

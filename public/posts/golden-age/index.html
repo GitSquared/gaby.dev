@@ -1,113 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Golden Age - Gaby's blog</title>
 
 		<!-- seo -->
-		<meta name="author" content="Gaby 'Squared' SAILLARD">
-		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
-		<meta name="keywords" content="blog,developer,personal">
+		<meta name="author" content="Gabriel Saillard" />
+		<meta name="description" content="Personal website" />
+		<meta name="keywords" content="blog,developer,personal" />
 
 		<!-- open graph -->
-		<meta property="og:title" content="Golden Age - Gaby's blog">
-		<meta property="og:type" content="article">
-		<meta property="og:image" content="https://gaby.dev/pics/avatar.jpg">
-		<meta property="og:description" content="An article on Gaby's personal blog.">
-		<meta property="og:url" content="https://gaby.dev/posts/golden-age">
-		<meta property="og:locale" content="en_US">
-		<meta property="og:site_name" content="gaby.dev">
-		
+		<meta property="og:title" content="Golden Age - Gaby's blog" />
+		<meta property="og:type" content="article" />
+		<meta
+			property="og:description"
+			content="An article on Gaby's personal blog."
+		/>
+		<meta property="og:url" content="https://gaby.dev/posts/golden-age" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="gaby.dev" />
+
 		<!-- display -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<!-- links -->
-		<base target="_blank">
+		<base target="_blank" />
 
 		<!-- icon -->
-		<link rel="icon" type="image/png" href="/pics/favicon-16x16.png" sizes="16x16">
-		<link rel="icon" type="image/png" href="/pics/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/pics/favicon.png" sizes="128x128">
-		
-		<!-- stylesheets -->
-		<link rel="stylesheet" href="/styles/water.css">
-		<link rel="stylesheet" href="/styles/syntax.css">
-		<link rel="stylesheet" href="/styles/posts.css">
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-16x16.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-32x32.png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon.png"
+			sizes="128x128"
+		/>
 
-		<script async defer data-domain="gaby.dev" src="https://plausible.gaby.dev/js/plausible.js"></script>
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="/styles/water.css" />
+		<link rel="stylesheet" href="/styles/syntax.css" />
+		<link rel="stylesheet" href="/styles/posts.css" />
+
+		<script
+			async
+			defer
+			data-domain="gaby.dev"
+			src="https://plausible.gaby.dev/js/plausible.js"
+		></script>
 	</head>
 	<body>
 		<script>
-		  (async function() {
-			 if (fetch) {
-				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
-				await fetch('https://reporter.gaby.dev/api/report/'+ref);
-			 }
-		  })();
+			(async function () {
+				if (fetch) {
+					const ref = document.referrer
+						? document.referrer.replace(/\//g, "%2F")
+						: "noref";
+					await fetch("https://reporter.gaby.dev/api/report/" + ref);
+				}
+			})();
 		</script>
-		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+		<noscript
+			><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""
+		/></noscript>
 
 		<aside>
 			<aside>
 				<h1>Gaby</h1>
 				<h4>@Squared</h4>
 			</aside>
-			<hr>
+			<hr />
 			<nav>
 				<h1>Latest posts</h1>
 				<ul>
-<!-- POSTS_LINKS -->
-<a disabled class="current-post">
-				<li>
-					<h4>Sun Aug 23 2020</h4><br><h1>Golden Age</h1>
-				</li>
-			</a><a href="/posts/working-with-beginners" target="_self">
-				<li>
-					<h4>Tue May 05 2020</h4><br><h1>Thoughts on working with beginners</h1>
-				</li>
-			</a><a href="/posts/static-site-generator" target="_self">
-				<li>
-					<h4>Sun Sep 15 2019</h4><br><h1>Writing a static blog generator</h1>
-				</li>
-			</a><a href="/posts/edex-remote-code-disclosure" target="_self">
-				<li>
-					<h4>Sun May 19 2019</h4><br><h1>eDEX-UI Remote Code Injection Disclosure</h1>
-				</li>
-			</a><a href="/posts/mr-worldwide" target="_self">
-				<li>
-					<h4>Sun Jan 20 2019</h4><br><h1>Introducing Mr.Worldwide</h1>
-				</li>
-			</a><a href="/posts/code-signing" target="_self">
-				<li>
-					<h4>Fri Dec 28 2018</h4><br><h1>Code Signing & why it (currently) sucks</h1>
-				</li>
-			</a>
-<!-- POSTS_LINKS -->
+					<!-- POSTS_LINKS -->
+					<a disabled class="current-post">
+						<li>
+							<h4>Sun Aug 23 2020</h4>
+							<br />
+							<h1>Golden Age</h1>
+						</li> </a
+					><a href="/posts/working-with-beginners" target="_self">
+						<li>
+							<h4>Tue May 05 2020</h4>
+							<br />
+							<h1>Thoughts on working with beginners</h1>
+						</li> </a
+					><a href="/posts/static-site-generator" target="_self">
+						<li>
+							<h4>Sun Sep 15 2019</h4>
+							<br />
+							<h1>Writing a static blog generator</h1>
+						</li> </a
+					><a href="/posts/edex-remote-code-disclosure" target="_self">
+						<li>
+							<h4>Sun May 19 2019</h4>
+							<br />
+							<h1>eDEX-UI Remote Code Injection Disclosure</h1>
+						</li> </a
+					><a href="/posts/mr-worldwide" target="_self">
+						<li>
+							<h4>Sun Jan 20 2019</h4>
+							<br />
+							<h1>Introducing Mr.Worldwide</h1>
+						</li> </a
+					><a href="/posts/code-signing" target="_self">
+						<li>
+							<h4>Fri Dec 28 2018</h4>
+							<br />
+							<h1>Code Signing & why it (currently) sucks</h1>
+						</li>
+					</a>
+					<!-- POSTS_LINKS -->
 				</ul>
 			</nav>
-			<hr>
+			<hr />
 			<p><a href="/" target="_self">go back to homepage</a></p>
 		</aside>
 		<article>
 			<h1>Golden Age</h1>
 			<h4>Published Sun Aug 23 2020</h4>
-			<hr>
+			<hr />
 			<blockquote>
-<p>He settled the black terry sweat-band across his forehead, careful not to disturb the flat Sendai dermatrodes.<br>He closed his eyes.<br>A gray disk, the color of Chiba sky.<br>Disk beginning to rotate, faster, becoming a sphere of paler gray. Expanding –<br>And flowed, flowered for him, fluid neon origami trick, the unfolding of his distanceless home, his country, transparent 3D chessboard extending to infinity. Inner eye opening to the stepped scarlet pyramid of the Eastern Seaboard Fission Authority burning beyond the green cubes of the Mitsubishi Bank of America, and high and very far away he saw the spiral arms of military systems, forever beyond his reach.<br>And somewhere he was laughing, in a white-painted loft, distant fingers caressing the deck, tears of release streaking his face.</p>
-<p>– William Gibson, <em>Neuromancer</em> (edited)</p>
-</blockquote>
-<p>I believe when times are tough we should take a moment to take a breath and marvel at the world around us. A flower blossoming towards the sky, a rose-tinted cloud at dawn, a painter&#39;s thoughtful stroke on a canvas.<br>And while I cultivate many passions, I often marvel at technology - because oh my, there is so much to marvel at!</p>
-<p>It would be an understatement to say that a lot has happened since humankind cobbled together a bunch of silicium and electrocuted it into <em>thinking</em>, of all things. And while we have not quite reached Gibson&#39;s vision of cyberspace, I&#39;d argue that we are, more likely than not, in a tech &quot;golden age&quot;.</p>
-<p>This might come as a surprise to you. After all, we&#39;re starting to see <a href="https://www.nature.com/news/the-chips-are-down-for-moore-s-law-1.19338">the end of Moore&#39;s law</a>, a <a href="https://en.wikipedia.org/wiki/Big_Tech">few tech giants</a> have leveraged consumers&#39; laziness to build an advertising market bubble that rules the world&#39;s economy, and a rising superpower&#39;s &quot;<a href="https://en.wikipedia.org/wiki/Cyberspace_Administration_of_China">Cyberspace Administration</a>&quot; managed to deny 1.8 billion people <a href="https://en.wikipedia.org/wiki/Great_Firewall">free, uncensored access to information</a>.</p>
-<p>And still, especially for hackers, makers, post-dotcom entrepreneurs and other digital-age freaks, now more than ever is the time to get excited.</p>
-<p>The COVID-19 pandemic has catapulted what was left of the old world into digitalization. Millions of apes wired to one another waited long months in their home for their screens to blink and tell them &quot;lockdown&#39;s over&quot;. No 1984 science-fiction writer could have imagined such an alien scenario, nor its consequences.</p>
-<p>As hordes of white-collar workers download videoconferencing software, unknowingly settling down in cyberspace for an ever-expanding portion of their lives, the curious among them will start to notice this is a land of opportunities.</p>
-<p>Here, most resources can be leased dirt cheap and in unimaginable quantities - data storage, bandwidth, computing power. A common form of business are <a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a> products, leased access to computer programs that, if made correctly, can accommodate a virtually unlimited number of tenants, effectively printing cash.</p>
-<p>While we haven&#39;t figured out <a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface">dermatrodes</a> yet, you can dive in on a wide range of devices, and soon from pretty much anywhere on <a href="https://en.wikipedia.org/wiki/Starlink">this planet</a>, and perhaps <a href="https://en.wikipedia.org/wiki/Interplanetary_Internet">the next one</a>, too. Oh, you&#39;re also joining a growing population of <a href="https://internetworldstats.com/stats.htm">4.8 billion</a> humans - other inhabitants include <a href="https://en.wikipedia.org/wiki/Internet_of_things">connected IoT devices</a>, <a href="https://en.wikipedia.org/wiki/Web_crawler">crawlers</a> and other cyber automatons, and the occasional <a href="https://en.wikipedia.org/wiki/Artificial_neural_network">neural network</a>, which might have a <a href="https://liamp.substack.com/p/my-gpt-3-blog-got-26-thousand-visitors">blog</a> - in fact, you can&#39;t really <em>know</em> for sure that this very piece you&#39;re reading hasn&#39;t been written by one.</p>
-<p>So go ahead, explore, learn, build something. Whatever it is you&#39;re thinking of, you can probably learn about, build, ship, and scale it on the Internet. Your paychecks live there too, as will your food orders, entertainment, relationships...</p>
-<p>Meatspace is becoming more irrelevant each and every day.<br>Now is your time to punch deck and get yourself a place in cyberspace.</p>
-<p>Welcome to the Golden Age.</p>
-
+				<p>
+					He settled the black terry sweat-band across his forehead, careful not
+					to disturb the flat Sendai dermatrodes.<br />He closed his eyes.<br />A
+					gray disk, the color of Chiba sky.<br />Disk beginning to rotate,
+					faster, becoming a sphere of paler gray. Expanding –<br />And flowed,
+					flowered for him, fluid neon origami trick, the unfolding of his
+					distanceless home, his country, transparent 3D chessboard extending to
+					infinity. Inner eye opening to the stepped scarlet pyramid of the
+					Eastern Seaboard Fission Authority burning beyond the green cubes of
+					the Mitsubishi Bank of America, and high and very far away he saw the
+					spiral arms of military systems, forever beyond his reach.<br />And
+					somewhere he was laughing, in a white-painted loft, distant fingers
+					caressing the deck, tears of release streaking his face.
+				</p>
+				<p>– William Gibson, <em>Neuromancer</em> (edited)</p>
+			</blockquote>
+			<p>
+				I believe when times are tough we should take a moment to take a breath
+				and marvel at the world around us. A flower blossoming towards the sky,
+				a rose-tinted cloud at dawn, a painter&#39;s thoughtful stroke on a
+				canvas.<br />And while I cultivate many passions, I often marvel at
+				technology - because oh my, there is so much to marvel at!
+			</p>
+			<p>
+				It would be an understatement to say that a lot has happened since
+				humankind cobbled together a bunch of silicium and electrocuted it into
+				<em>thinking</em>, of all things. And while we have not quite reached
+				Gibson&#39;s vision of cyberspace, I&#39;d argue that we are, more
+				likely than not, in a tech &quot;golden age&quot;.
+			</p>
+			<p>
+				This might come as a surprise to you. After all, we&#39;re starting to
+				see
+				<a
+					href="https://www.nature.com/news/the-chips-are-down-for-moore-s-law-1.19338"
+					>the end of Moore&#39;s law</a
+				>, a
+				<a href="https://en.wikipedia.org/wiki/Big_Tech">few tech giants</a>
+				have leveraged consumers&#39; laziness to build an advertising market
+				bubble that rules the world&#39;s economy, and a rising superpower&#39;s
+				&quot;<a
+					href="https://en.wikipedia.org/wiki/Cyberspace_Administration_of_China"
+					>Cyberspace Administration</a
+				>&quot; managed to deny 1.8 billion people
+				<a href="https://en.wikipedia.org/wiki/Great_Firewall"
+					>free, uncensored access to information</a
+				>.
+			</p>
+			<p>
+				And still, especially for hackers, makers, post-dotcom entrepreneurs and
+				other digital-age freaks, now more than ever is the time to get excited.
+			</p>
+			<p>
+				The COVID-19 pandemic has catapulted what was left of the old world into
+				digitalization. Millions of apes wired to one another waited long months
+				in their home for their screens to blink and tell them
+				&quot;lockdown&#39;s over&quot;. No 1984 science-fiction writer could
+				have imagined such an alien scenario, nor its consequences.
+			</p>
+			<p>
+				As hordes of white-collar workers download videoconferencing software,
+				unknowingly settling down in cyberspace for an ever-expanding portion of
+				their lives, the curious among them will start to notice this is a land
+				of opportunities.
+			</p>
+			<p>
+				Here, most resources can be leased dirt cheap and in unimaginable
+				quantities - data storage, bandwidth, computing power. A common form of
+				business are
+				<a href="https://en.wikipedia.org/wiki/Software_as_a_service">SaaS</a>
+				products, leased access to computer programs that, if made correctly,
+				can accommodate a virtually unlimited number of tenants, effectively
+				printing cash.
+			</p>
+			<p>
+				While we haven&#39;t figured out
+				<a href="https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
+					>dermatrodes</a
+				>
+				yet, you can dive in on a wide range of devices, and soon from pretty
+				much anywhere on
+				<a href="https://en.wikipedia.org/wiki/Starlink">this planet</a>, and
+				perhaps
+				<a href="https://en.wikipedia.org/wiki/Interplanetary_Internet"
+					>the next one</a
+				>, too. Oh, you&#39;re also joining a growing population of
+				<a href="https://internetworldstats.com/stats.htm">4.8 billion</a>
+				humans - other inhabitants include
+				<a href="https://en.wikipedia.org/wiki/Internet_of_things"
+					>connected IoT devices</a
+				>, <a href="https://en.wikipedia.org/wiki/Web_crawler">crawlers</a> and
+				other cyber automatons, and the occasional
+				<a href="https://en.wikipedia.org/wiki/Artificial_neural_network"
+					>neural network</a
+				>, which might have a
+				<a
+					href="https://liamp.substack.com/p/my-gpt-3-blog-got-26-thousand-visitors"
+					>blog</a
+				>
+				- in fact, you can&#39;t really <em>know</em> for sure that this very
+				piece you&#39;re reading hasn&#39;t been written by one.
+			</p>
+			<p>
+				So go ahead, explore, learn, build something. Whatever it is you&#39;re
+				thinking of, you can probably learn about, build, ship, and scale it on
+				the Internet. Your paychecks live there too, as will your food orders,
+				entertainment, relationships...
+			</p>
+			<p>
+				Meatspace is becoming more irrelevant each and every day.<br />Now is
+				your time to punch deck and get yourself a place in cyberspace.
+			</p>
+			<p>Welcome to the Golden Age.</p>
 		</article>
 	</body>
 </html>

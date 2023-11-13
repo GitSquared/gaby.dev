@@ -1,113 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Writing a static blog generator - Gaby's blog</title>
 
 		<!-- seo -->
-		<meta name="author" content="Gaby 'Squared' SAILLARD">
-		<meta name="description" content="Gaby, also known as Squared. Personal website, resume, blog, and more.">
-		<meta name="keywords" content="blog,developer,personal">
+		<meta name="author" content="Gabriel Saillard" />
+		<meta name="description" content="Personal website" />
+		<meta name="keywords" content="blog,developer,personal" />
 
 		<!-- open graph -->
-		<meta property="og:title" content="Writing a static blog generator - Gaby's blog">
-		<meta property="og:type" content="article">
-		<meta property="og:image" content="https://gaby.dev/pics/avatar.jpg">
-		<meta property="og:description" content="An article on Gaby's personal blog.">
-		<meta property="og:url" content="https://gaby.dev/posts/static-site-generator">
-		<meta property="og:locale" content="en_US">
-		<meta property="og:site_name" content="gaby.dev">
-		
+		<meta
+			property="og:title"
+			content="Writing a static blog generator - Gaby's blog"
+		/>
+		<meta property="og:type" content="article" />
+		<meta
+			property="og:description"
+			content="An article on Gaby's personal blog."
+		/>
+		<meta
+			property="og:url"
+			content="https://gaby.dev/posts/static-site-generator"
+		/>
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="gaby.dev" />
+
 		<!-- display -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<!-- links -->
-		<base target="_blank">
+		<base target="_blank" />
 
 		<!-- icon -->
-		<link rel="icon" type="image/png" href="/pics/favicon-16x16.png" sizes="16x16">
-		<link rel="icon" type="image/png" href="/pics/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="/pics/favicon.png" sizes="128x128">
-		
-		<!-- stylesheets -->
-		<link rel="stylesheet" href="/styles/water.css">
-		<link rel="stylesheet" href="/styles/syntax.css">
-		<link rel="stylesheet" href="/styles/posts.css">
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-16x16.png"
+			sizes="16x16"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon-32x32.png"
+			sizes="32x32"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			href="/pics/favicon.png"
+			sizes="128x128"
+		/>
 
-		<script async defer data-domain="gaby.dev" src="https://plausible.gaby.dev/js/plausible.js"></script>
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="/styles/water.css" />
+		<link rel="stylesheet" href="/styles/syntax.css" />
+		<link rel="stylesheet" href="/styles/posts.css" />
+
+		<script
+			async
+			defer
+			data-domain="gaby.dev"
+			src="https://plausible.gaby.dev/js/plausible.js"
+		></script>
 	</head>
 	<body>
 		<script>
-		  (async function() {
-			 if (fetch) {
-				const ref = (document.referrer) ? document.referrer.replace(/\//g, '%2F') : 'noref';
-				await fetch('https://reporter.gaby.dev/api/report/'+ref);
-			 }
-		  })();
+			(async function () {
+				if (fetch) {
+					const ref = document.referrer
+						? document.referrer.replace(/\//g, "%2F")
+						: "noref";
+					await fetch("https://reporter.gaby.dev/api/report/" + ref);
+				}
+			})();
 		</script>
-		<noscript><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""></noscript>
+		<noscript
+			><img src="https://reporter.gaby.dev/api/report/pixel.gif" alt=""
+		/></noscript>
 
 		<aside>
 			<aside>
 				<h1>Gaby</h1>
 				<h4>@Squared</h4>
 			</aside>
-			<hr>
+			<hr />
 			<nav>
 				<h1>Latest posts</h1>
 				<ul>
-<!-- POSTS_LINKS -->
-<a href="/posts/golden-age" target="_self">
-				<li>
-					<h4>Sun Aug 23 2020</h4><br><h1>Golden Age</h1>
-				</li>
-			</a><a href="/posts/working-with-beginners" target="_self">
-				<li>
-					<h4>Tue May 05 2020</h4><br><h1>Thoughts on working with beginners</h1>
-				</li>
-			</a><a disabled class="current-post">
-				<li>
-					<h4>Sun Sep 15 2019</h4><br><h1>Writing a static blog generator</h1>
-				</li>
-			</a><a href="/posts/edex-remote-code-disclosure" target="_self">
-				<li>
-					<h4>Sun May 19 2019</h4><br><h1>eDEX-UI Remote Code Injection Disclosure</h1>
-				</li>
-			</a><a href="/posts/mr-worldwide" target="_self">
-				<li>
-					<h4>Sun Jan 20 2019</h4><br><h1>Introducing Mr.Worldwide</h1>
-				</li>
-			</a><a href="/posts/code-signing" target="_self">
-				<li>
-					<h4>Fri Dec 28 2018</h4><br><h1>Code Signing & why it (currently) sucks</h1>
-				</li>
-			</a>
-<!-- POSTS_LINKS -->
+					<!-- POSTS_LINKS -->
+					<a href="/posts/golden-age" target="_self">
+						<li>
+							<h4>Sun Aug 23 2020</h4>
+							<br />
+							<h1>Golden Age</h1>
+						</li> </a
+					><a href="/posts/working-with-beginners" target="_self">
+						<li>
+							<h4>Tue May 05 2020</h4>
+							<br />
+							<h1>Thoughts on working with beginners</h1>
+						</li> </a
+					><a disabled class="current-post">
+						<li>
+							<h4>Sun Sep 15 2019</h4>
+							<br />
+							<h1>Writing a static blog generator</h1>
+						</li> </a
+					><a href="/posts/edex-remote-code-disclosure" target="_self">
+						<li>
+							<h4>Sun May 19 2019</h4>
+							<br />
+							<h1>eDEX-UI Remote Code Injection Disclosure</h1>
+						</li> </a
+					><a href="/posts/mr-worldwide" target="_self">
+						<li>
+							<h4>Sun Jan 20 2019</h4>
+							<br />
+							<h1>Introducing Mr.Worldwide</h1>
+						</li> </a
+					><a href="/posts/code-signing" target="_self">
+						<li>
+							<h4>Fri Dec 28 2018</h4>
+							<br />
+							<h1>Code Signing & why it (currently) sucks</h1>
+						</li>
+					</a>
+					<!-- POSTS_LINKS -->
 				</ul>
 			</nav>
-			<hr>
+			<hr />
 			<p><a href="/" target="_self">go back to homepage</a></p>
 		</aside>
 		<article>
 			<h1>Writing a static blog generator</h1>
 			<h4>Published Sun Sep 15 2019</h4>
-			<hr>
-			<p>For about a year now, I have been using <a href="https://gohugo.io/">Hugo</a> as a static site generator for my personal homepage.<br>I recently bought a new laptop, and wanted to write a new blog post last Friday but realized I hadn&#39;t installed Hugo on the new system yet. Hugo needs Ruby, and I don&#39;t do anything in Ruby, so I didn&#39;t want to bloat my so-far-still-clean install just to write some articles...</p>
-<p>So I wrote a new blog, with a simple Node.js script to generate new posts from Markdown files.<br>It&#39;s nothing compared to Hugo, but it&#39;s tiny, efficient, and it took less than 2 hours of work. It&#39;s perhaps a bit hacky and may need some more polishing, but it <em>works</em>.</p>
-<p>Here&#39;s how I made it.</p>
-<hr>
-<p align="center">
-  <img src="/posts/static-site-generator/res/demo-index.png" alt="Screenshot of what the blog looks like (Index page).">
-  <br><br>
-  <img src="/posts/static-site-generator/res/demo-post.png" alt="Screenshot of what the blog looks like (A post).">
-</p>
+			<hr />
+			<p>
+				For about a year now, I have been using
+				<a href="https://gohugo.io/">Hugo</a> as a static site generator for my
+				personal homepage.<br />I recently bought a new laptop, and wanted to
+				write a new blog post last Friday but realized I hadn&#39;t installed
+				Hugo on the new system yet. Hugo needs Ruby, and I don&#39;t do anything
+				in Ruby, so I didn&#39;t want to bloat my so-far-still-clean install
+				just to write some articles...
+			</p>
+			<p>
+				So I wrote a new blog, with a simple Node.js script to generate new
+				posts from Markdown files.<br />It&#39;s nothing compared to Hugo, but
+				it&#39;s tiny, efficient, and it took less than 2 hours of work.
+				It&#39;s perhaps a bit hacky and may need some more polishing, but it
+				<em>works</em>.
+			</p>
+			<p>Here&#39;s how I made it.</p>
+			<hr />
+			<p align="center">
+				<img
+					src="/posts/static-site-generator/res/demo-index.png"
+					alt="Screenshot of what the blog looks like (Index page)."
+				/>
+				<br /><br />
+				<img
+					src="/posts/static-site-generator/res/demo-post.png"
+					alt="Screenshot of what the blog looks like (A post)."
+				/>
+			</p>
 
-<hr>
-<h2 id="structure">Structure</h2>
-<p>The website is all static HTML/CSS, because that&#39;s really all you should have in a personal website. Static is also <em>very cheap</em> to host these days - actually, it&#39;s <em>free</em> on serverless platforms like <a href="https://zeit.co">ZEIT Now</a>, which I use. I hear <a href="https://netlify.com">Netlify</a> has a similar offering, too.</p>
-<p>The whole site lives in a <a href="https://github.com">GitHub</a> repo, on which Now is plugged in - which means I just have to <code>git push</code> to deploy to production (and it&#39;s up in 900ms). It&#39;s also useful because it means I can host some stuff on GitHub and tell Now to ignore it for publishing: so my blog generator script is version-controlled but isn&#39;t uploaded as a part of the live website.</p>
-<p>Here&#39;s what that repo looks likes (<a href="https://github.com/GitSquared/gaby.dev/tree/1c56408ceef753a13f6d73c0ccb0b9809b57dd7a">see it on GH</a>):</p>
-<pre><code>gaby<span class="hljs-selector-class">.dev</span>
+			<hr />
+			<h2 id="structure">Structure</h2>
+			<p>
+				The website is all static HTML/CSS, because that&#39;s really all you
+				should have in a personal website. Static is also <em>very cheap</em> to
+				host these days - actually, it&#39;s <em>free</em> on serverless
+				platforms like <a href="https://zeit.co">ZEIT Now</a>, which I use. I
+				hear <a href="https://netlify.com">Netlify</a> has a similar offering,
+				too.
+			</p>
+			<p>
+				The whole site lives in a <a href="https://github.com">GitHub</a> repo,
+				on which Now is plugged in - which means I just have to
+				<code>git push</code> to deploy to production (and it&#39;s up in
+				900ms). It&#39;s also useful because it means I can host some stuff on
+				GitHub and tell Now to ignore it for publishing: so my blog generator
+				script is version-controlled but isn&#39;t uploaded as a part of the
+				live website.
+			</p>
+			<p>
+				Here&#39;s what that repo looks likes (<a
+					href="https://github.com/GitSquared/gaby.dev/tree/1c56408ceef753a13f6d73c0ccb0b9809b57dd7a"
+					>see it on GH</a
+				>):
+			</p>
+			<pre><code>gaby<span class="hljs-selector-class">.dev</span>
 ├── _tools
 │  ├── node_modules
 │  ├── buildPosts<span class="hljs-selector-class">.js</span>
@@ -133,33 +217,66 @@
 ├── now<span class="hljs-selector-class">.json</span>
 └── index.html
 </code></pre>
-<p>Each post lives inside its own directory in <code>posts/</code>, along with all the resources it needs (images, demos, etc).<br>Now&#39;s <code>.nowignore</code> is set to not upload the <code>_tools</code> directory - where the site generator lives - and anything starting with <code>_template-</code>.</p>
-<p>Finally, <code>build.sh</code> is just a shortcut to access the site generator:</p>
-<pre><code class="language-bash"><span class="hljs-meta">#!/bin/sh</span>
+			<p>
+				Each post lives inside its own directory in <code>posts/</code>, along
+				with all the resources it needs (images, demos, etc).<br />Now&#39;s
+				<code>.nowignore</code> is set to not upload the
+				<code>_tools</code> directory - where the site generator lives - and
+				anything starting with <code>_template-</code>.
+			</p>
+			<p>
+				Finally, <code>build.sh</code> is just a shortcut to access the site
+				generator:
+			</p>
+			<pre><code class="language-bash"><span class="hljs-meta">#!/bin/sh</span>
 node _tools/buildPosts.js
 </code></pre>
-<h2 id="workflow">Workflow</h2>
-<p>To create a new post, here&#39;s what I do:</p>
-<ul>
-<li>Make a new directory under <code>posts/</code>, with a short, url-friendly directory name.</li>
-<li>Create an <code>index.md</code> (markdown) file in this new directory.</li>
-<li>Write the post in Markdown.<ul>
-<li>The first line must be a <code># Heading</code> and will determinate the full-length post title.</li>
-<li>If the second line looks like <code>date: YYYY-MM-DD</code> (or any JS-valid time representation), the generator will use that to date the post - otherwise it uses the current date at build time.</li>
-<li><code>{{ URL }}</code> is replaced with the url to the post directory (used to link resources).</li>
-</ul>
-</li>
-<li>Run <code>./build.sh</code>.</li>
-<li>Commit, push, and it&#39;s live!</li>
-</ul>
-<p align="center">
-  <img src="/posts/static-site-generator/res/cli.png" alt="Screenshot of build script output.">
-</p>
+			<h2 id="workflow">Workflow</h2>
+			<p>To create a new post, here&#39;s what I do:</p>
+			<ul>
+				<li>
+					Make a new directory under <code>posts/</code>, with a short,
+					url-friendly directory name.
+				</li>
+				<li>
+					Create an <code>index.md</code> (markdown) file in this new directory.
+				</li>
+				<li>
+					Write the post in Markdown.
+					<ul>
+						<li>
+							The first line must be a <code># Heading</code> and will
+							determinate the full-length post title.
+						</li>
+						<li>
+							If the second line looks like <code>date: YYYY-MM-DD</code> (or
+							any JS-valid time representation), the generator will use that to
+							date the post - otherwise it uses the current date at build time.
+						</li>
+						<li>
+							<code>{{ URL }}</code> is replaced with the url to the post
+							directory (used to link resources).
+						</li>
+					</ul>
+				</li>
+				<li>Run <code>./build.sh</code>.</li>
+				<li>Commit, push, and it&#39;s live!</li>
+			</ul>
+			<p align="center">
+				<img
+					src="/posts/static-site-generator/res/cli.png"
+					alt="Screenshot of build script output."
+				/>
+			</p>
 
-<h2 id="static-post-generator-script">Static post generator script</h2>
-<h4 id="indexing">Indexing</h4>
-<p>The generator script first crawls through each <code>posts/</code> subdirectory and builds an array containing one object for each post, built or unbuilt:</p>
-<pre><code class="language-js">let posts = [];
+			<h2 id="static-post-generator-script">Static post generator script</h2>
+			<h4 id="indexing">Indexing</h4>
+			<p>
+				The generator script first crawls through each
+				<code>posts/</code> subdirectory and builds an array containing one
+				object for each post, built or unbuilt:
+			</p>
+			<pre><code class="language-js">let posts = [];
 
 let postsDirs = fs.readdirSync(<span class="hljs-string">&#x27;posts/&#x27;</span>, { withFileTypes: <span class="hljs-keyword">true</span> });
 postsDirs = postsDirs.<span class="hljs-keyword">filter</span>(e =&gt; {
@@ -218,8 +335,12 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
     });
 });
 </code></pre>
-<p>As you can see it uses a bunch of regex to retrieve info from either the unbuilt Markdown source or the renderer HTML file. Here&#39;s what the array looks like at this point:</p>
-<pre><code class="language-js">[
+			<p>
+				As you can see it uses a bunch of regex to retrieve info from either the
+				unbuilt Markdown source or the renderer HTML file. Here&#39;s what the
+				array looks like at this point:
+			</p>
+			<pre><code class="language-js">[
   {
     title: <span class="hljs-symbol">&#x27;New</span> Post Example&#x27;,
     date: Date.now(),
@@ -235,16 +356,32 @@ postsDirs.<span class="hljs-keyword">forEach</span>(dir =&gt; {
   }
 ]
 </code></pre>
-<p>This array is sorted so that newer posts will have lower indexes; which will be useful later for making the blog homepage, and sidebar menus.</p>
-<pre><code class="language-js">posts.sort(<span class="hljs-function"><span class="hljs-params">(a, b)</span> =&gt;</span> {
+			<p>
+				This array is sorted so that newer posts will have lower indexes; which
+				will be useful later for making the blog homepage, and sidebar menus.
+			</p>
+			<pre><code class="language-js">posts.sort(<span class="hljs-function"><span class="hljs-params">(a, b)</span> =&gt;</span> {
     <span class="hljs-regexp">//</span> Sort posts <span class="hljs-keyword">by</span> timestamp
     <span class="hljs-keyword">return</span> b.date.getTime() - a.date.getTime();
 });
 </code></pre>
-<h4 id="building-new-posts">Building new posts</h4>
-<p>New posts (<code>unbuilt === true</code>) are rendered using a <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html">template HTML file</a> which has special strings like <code>{{ TITLE }}</code> and <code>{{ DATE }}</code>. These are replaced with the info retrieved above, using regex again.</p>
-<p>Markdown is transformed into HTML using <a href="https://www.npmjs.com/package/marked"><code>marked</code></a>.</p>
-<pre><code class="language-js">let postTemplate = fs.readFileSync(&#x27;posts/_template-<span class="hljs-keyword">post</span>-<span class="hljs-keyword">dir</span>/index.html&#x27;, { encoding: &#x27;utf-8&#x27; });
+			<h4 id="building-new-posts">Building new posts</h4>
+			<p>
+				New posts (<code>unbuilt === true</code>) are rendered using a
+				<a
+					href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-post-dir/index.html"
+					>template HTML file</a
+				>
+				which has special strings like <code>{{ TITLE }}</code> and
+				<code>{{ DATE }}</code>. These are replaced with the info retrieved
+				above, using regex again.
+			</p>
+			<p>
+				Markdown is transformed into HTML using
+				<a href="https://www.npmjs.com/package/marked"><code>marked</code></a
+				>.
+			</p>
+			<pre><code class="language-js">let postTemplate = fs.readFileSync(&#x27;posts/_template-<span class="hljs-keyword">post</span>-<span class="hljs-keyword">dir</span>/index.html&#x27;, { encoding: &#x27;utf-8&#x27; });
 
 posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post</span> =&gt; {
     <span class="hljs-comment">// Skip already-built posts.</span>
@@ -258,17 +395,24 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
                     .<span class="hljs-keyword">replace</span>(//posts/static-site-generator/<span class="hljs-keyword">g</span>, <span class="hljs-keyword">post</span>.url);
 });
 </code></pre>
-<h4 id="updating-navigation-sidebars">Updating navigation sidebars</h4>
-<p>Each post has a &quot;Latest posts&quot; menu in a sidebar. When new posts are added, the generator needs to rewrite this menu in all the previous posts to reflect the changes.</p>
-<p>The HTML post template includes special comments around the relevant part of the sidebar:</p>
-<pre><code class="language-html"><span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
+			<h4 id="updating-navigation-sidebars">Updating navigation sidebars</h4>
+			<p>
+				Each post has a &quot;Latest posts&quot; menu in a sidebar. When new
+				posts are added, the generator needs to rewrite this menu in all the
+				previous posts to reflect the changes.
+			</p>
+			<p>
+				The HTML post template includes special comments around the relevant
+				part of the sidebar:
+			</p>
+			<pre><code class="language-html"><span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/post/new-post&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>New post!<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>
 </code></pre>
-<p>This makes it easy to search-and-replace the links:</p>
-<pre><code class="language-js"><span class="language-xml">posts.forEach(post =&gt; </span><span class="hljs-template-variable">{
+			<p>This makes it easy to search-and-replace the links:</p>
+			<pre><code class="language-js"><span class="language-xml">posts.forEach(post =&gt; </span><span class="hljs-template-variable">{
     <span class="hljs-keyword">if</span> (!post.unbuilt) {
         // Populate post.rendered with the already-built HTML file
         post.rendered = await fs.readFile(post.url.substr(1)+&#x27;/index.html&#x27;, { encoding: &#x27;utf-8&#x27; }</span><span class="language-xml">);
@@ -296,9 +440,16 @@ posts.<span class="hljs-keyword">forEach</span>(<span class="hljs-keyword">post<
     post.rendered = post.rendered.replace(/\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n([\s\S]*)\n<span class="hljs-comment">&lt;!-- POSTS_LINKS --&gt;</span>\n/g, previousPosts);
 });</span>
 </code></pre>
-<h4 id="creating-the-blog-homepage">Creating the blog homepage</h4>
-<p>The blog index/homepage (at <code>posts/index.html</code>) also has its own <a href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-index.html">template</a>, with a <code>{{ POSTS_LINKS }}</code> string inside.</p>
-<pre><code class="language-js"><span class="hljs-keyword">let</span> indexTemplate = fs.readFileSync(<span class="hljs-string">&#x27;posts/_template-index.html&#x27;</span>, { encoding: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
+			<h4 id="creating-the-blog-homepage">Creating the blog homepage</h4>
+			<p>
+				The blog index/homepage (at <code>posts/index.html</code>) also has its
+				own
+				<a
+					href="https://github.com/GitSquared/gaby.dev/blob/c1bf2eff98373a1593c72206e8ffbc6228f172cf/posts/_template-index.html"
+					>template</a
+				>, with a <code>{{ POSTS_LINKS }}</code> string inside.
+			</p>
+			<pre><code class="language-js"><span class="hljs-keyword">let</span> indexTemplate = fs.readFileSync(<span class="hljs-string">&#x27;posts/_template-index.html&#x27;</span>, { encoding: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
 
 <span class="hljs-keyword">let</span> index = indexTemplate;
 <span class="hljs-keyword">let</span> previousPosts = <span class="hljs-string">&#x27;&#x27;</span>;
@@ -313,17 +464,30 @@ posts.forEach(post =&gt; {
 
 index = index<span class="hljs-built_in">.replace</span>(/{{ POSTS_LINKS }}/g, previousPosts);
 </code></pre>
-<h4 id="saving-everything">Saving everything</h4>
-<p>The script now has a <code>post</code> array containing one object for each post, where <code>post.rendered</code> is the new or updated HTML file, and an <code>index</code> string which has the HTML code for the blog homepage.<br>The only thing left is to save everything to disk!</p>
-<pre><code class="language-js">fs.writeFileSync(<span class="hljs-string">&#x27;posts/index.html&#x27;</span>, <span class="hljs-keyword">index</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
+			<h4 id="saving-everything">Saving everything</h4>
+			<p>
+				The script now has a <code>post</code> array containing one object for
+				each post, where <code>post.rendered</code> is the new or updated HTML
+				file, and an <code>index</code> string which has the HTML code for the
+				blog homepage.<br />The only thing left is to save everything to disk!
+			</p>
+			<pre><code class="language-js">fs.writeFileSync(<span class="hljs-string">&#x27;posts/index.html&#x27;</span>, <span class="hljs-keyword">index</span>, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
 
 posts.<span class="hljs-keyword">forEach</span>(post =&gt; {
     fs.writeFileSync(post.url.substr(<span class="hljs-number">1</span>)+<span class="hljs-string">&#x27;/index.html&#x27;</span>, post.rendered, { <span class="hljs-keyword">encoding</span>: <span class="hljs-string">&#x27;utf-8&#x27;</span> });
 });
 </code></pre>
-<h2 id="footnote">Footnote</h2>
-<p>I voluntarily removed some quality-of-life code from the snippets in this post to keep it clear and simple.<br>If you&#39;re interested into using this for your own site or playing around with it, check out the <a href="https://github.com/GitSquared/gaby.dev/blob/master/_tools/buildPosts.js">latest source</a>.</p>
-
+			<h2 id="footnote">Footnote</h2>
+			<p>
+				I voluntarily removed some quality-of-life code from the snippets in
+				this post to keep it clear and simple.<br />If you&#39;re interested
+				into using this for your own site or playing around with it, check out
+				the
+				<a
+					href="https://github.com/GitSquared/gaby.dev/blob/master/_tools/buildPosts.js"
+					>latest source</a
+				>.
+			</p>
 		</article>
 	</body>
 </html>
