@@ -37,7 +37,7 @@
 	{
       "src": "/email",
       "status": 302,
-      "headers": { "Location": "mailto:gabriel@saillard.dev" }
+      "headers": { "Location": "/mailto:gabriel@saillard.dev" }
 	},
     {
       "src": "/twitter",
