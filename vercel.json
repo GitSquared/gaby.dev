@@ -1,94 +1,50 @@
 {
-  "version": 2,
-  "scope": "squared",
-  "public": false,
-  "github": {
-    "enabled": true,
-    "autoAlias": true,
-    "silent": true,
-    "autoJobCancelation": true
-  },
-  "routes": [
-    {
-      "src": "/analytics",
-      "status": 302,
-      "headers": { "Location": "https://gabydev.typeform.com/to/PcxzZuT8" }
-    },
-    {
-      "src": "/blog",
-      "status": 301,
-      "headers": { "Location": "https://gaby.dev/posts" }
-    },
-    {
-      "src": "/donate",
-      "status": 302,
-      "headers": { "Location": "https://buymeacoffee.com/gaby" }
-    },
-    {
-      "src": "/edex",
-      "status": 302,
-      "headers": { "Location": "https://github.com/GitSquared/edex-ui" }
-    },
-    {
-      "src": "/edex-vuln",
-      "status": 302,
-      "headers": { "Location": "https://gaby.dev/posts/edex-remote-code-disclosure" }
-    },
-	{
-      "src": "/email",
-      "status": 302,
-      "headers": { "Location": "/mailto:gabriel@saillard.dev" }
+	"version": 2,
+	"public": false,
+	"github": {
+		"enabled": true,
+		"autoAlias": true,
+		"silent": true,
+		"autoJobCancelation": true
 	},
-    {
-      "src": "/twitter",
-      "status": 302,
-      "headers": { "Location": "https://twitter.com/GitSquared" }
-    },
-    {
-      "src": "/github",
-      "status": 302,
-      "headers": { "Location": "https://github.com/GitSquared" }
-    },
-    {
-      "src": "/linkedin",
-      "status": 302,
-      "headers": { "Location": "https://www.linkedin.com/in/gabriel-saillard/" }
-    },
-    {
-      "src": "/hn",
-      "status": 302,
-      "headers": { "Location": "https://news.ycombinator.com/user?id=_squared_" }
-    },
-    {
-      "src": "/keybase",
-      "status": 302,
-      "headers": { "Location": "https://keybase.io/squared_0" }
-    },
-    {
-      "src": "/reddit",
-      "status": 302,
-      "headers": { "Location": "https://reddit.com/user/Squared_fr" }
-    },
-    {
-      "src": "/instagram",
-      "status": 302,
-      "headers": { "Location": "https://instagram.com/gabyblbl" }
-    },
-    {
-      "src": "/telegram",
-      "status": 302,
-      "headers": { "Location": "https://t.me/GabySquared" }
-    },
-    {
-      "src": "/pgp",
-      "headers": { "Content-Type": "application/pgp-keys" },
-      "dest": "/key0x4F615B5FE436611A.asc"
-    },
-    { "handle": "filesystem" },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
-    }
-  ]
+	"routes": [
+		{
+			"src": "/edex",
+			"status": 302,
+			"headers": { "Location": "https://github.com/GitSquared/edex-ui" }
+		},
+		{
+			"src": "/twitter",
+			"status": 302,
+			"headers": { "Location": "https://twitter.com/GitSquared" }
+		},
+		{
+			"src": "/github",
+			"status": 302,
+			"headers": { "Location": "https://github.com/GitSquared" }
+		},
+		{
+			"src": "/linkedin",
+			"status": 302,
+			"headers": { "Location": "https://www.linkedin.com/in/gabriel-saillard/" }
+		},
+		{
+			"src": "/hn",
+			"status": 302,
+			"headers": {
+				"Location": "https://news.ycombinator.com/user?id=_squared_"
+			}
+		},
+		{
+			"src": "/pgp",
+			"headers": { "Content-Type": "application/pgp-keys" },
+			"dest": "/key0x4F615B5FE436611A.asc"
+		},
+		{ "handle": "filesystem" },
+		{
+			"src": "/(.*)",
+			"status": 404,
+			"dest": "/404.html"
+		}
+	]
 }

@@ -1,20 +1,14 @@
 {
-  "name": "gaby.dev_tools",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "rm public/posts/**/index.html; node buildPosts.js",
-    "watch": "node watcher.js",
-    "serve": "lite-server",
-    "dev": "concurrently -k npm:watch npm:serve"
-  },
-  "devDependencies": {
-    "chokidar": "^3.5.1",
-    "concurrently": "^6.2.0",
-    "highlight.js": "^11.0.1",
-    "lite-server": "^2.6.1",
-    "marked": "^2.0.7",
-    "ora": "^5.4.1",
-    "vercel": "^23.0.0"
-  }
+	"name": "gaby.dev_tools",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "lite-server"
+	},
+	"devDependencies": {
+		"vercel": "^41.4.1"
+	},
+	"dependencies": {
+		"lite-server": "^2.6.1"
+	}
 }
