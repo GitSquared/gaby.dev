@@ -3,12 +3,9 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"dev": "lite-server"
+		"dev": "node scripts/serve.mjs"
 	},
-	"devDependencies": {
-		"vercel": "^41.4.1"
-	},
-	"dependencies": {
-		"lite-server": "^2.6.1"
+	"engines": {
+		"node": ">=18"
 	}
 }
