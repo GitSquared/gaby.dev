@@ -17,6 +17,18 @@
 	<meta property="og:url" content="https://gaby.dev" />
 	<meta property="og:locale" content="en_US" />
 	<meta property="og:site_name" content="gaby.dev" />
+	<meta property="og:image" content="https://gaby.dev/pics/og-night-sea.jpg" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="gaby — is having fun with computers, above a dithered ocean beneath a starry night sky." />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Gabriel Saillard" />
+	<meta name="twitter:description" content="Gabriel is a software engineer based in Paris. This is his personal website." />
+	<meta name="twitter:image" content="https://gaby.dev/pics/og-night-sea.jpg" />
+	<meta name="twitter:image:alt" content="gaby — is having fun with computers, above a dithered ocean beneath a starry night sky." />
+	<link rel="canonical" href="https://gaby.dev/" />
+	<meta name="theme-color" content="#060b16" />
 
 	<!-- display -->
 	<meta charset="utf-8" />
@@ -26,6 +38,8 @@
 	<link rel="icon" type="image/png" href="pics/favicon-16x16.png" sizes="16x16" />
 	<link rel="icon" type="image/png" href="pics/favicon-32x32.png" sizes="32x32" />
 	<link rel="icon" type="image/png" href="pics/favicon.png" sizes="128x128" />
+	<link rel="icon" type="image/svg+xml" href="pics/favicon.svg" />
+	<link rel="apple-touch-icon" href="pics/apple-touch-icon.png" sizes="180x180" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,24 +50,16 @@
 </head>
 
 <body>
-	<div id="painting-shadow">
-		<svg width="0" height="0">
-			<defs>
-				<clipPath id="scaledClip" clipPathUnits="objectBoundingBox">
-					<path
-						d="m 0.259,0 h 0.482 c 0.144,0 0.259,0.114 0.259,0.257 v 0.363 c 0,0.036 -0.007,0.069 -0.02,0.1 -0.007,0.015 0.002,0.111 -0.011,0.111 -0.011,0 0.003,-0.065 -0.021,-0.037 -0.019,0.021 0.001,0.105 -0.026,0.105 -0.013,-0 -0.003,-0.053 -0.013,-0.052 -0.043,0.004 -0.016,0.113 -0.044,0.114 -0.014,0 -0.006,-0.111 -0.022,-0.105 -0.031,0.013 -0.065,0.02 -0.101,0.02 -0.077,0.001 -0.081,-0.001 -0.099,-0.001 -0.027,-0 -0.029,0.074 -0.04,0.075 -0.017,-0.001 -0.005,-0.074 -0.027,-0.075 -0.021,-0.001 -0.193,0.001 -0.193,0.001 C 0.336,0.876 0.357,1.002 0.326,1 0.293,0.999 0.333,0.88 0.259,0.877 0.116,0.87 0,0.762 0,0.62 V 0.257 C 0,0.115 0.116,0 0.259,0 Z" />
-				</clipPath>
-			</defs>
-		</svg>
-
-		<div id="painting"></div>
-	</div>
+	<canvas id="ocean" aria-hidden="true"></canvas>
+	<script type="module" src="scripts/backdrop.js"></script>
 
 	<section id="content">
-		<h1>gaby</h1>
-		<p>
-			is having fun with computers<br />
-		</p>
+		<div id="intro">
+			<h1>gaby</h1>
+			<p>
+				is having fun with computers<br />
+			</p>
+		</div>
 		<p id="bio">
 			currently: fighting climate change at <a target="_blank" href="https://carbonfact.com">Carbonfact</a><br />
 			previously:
