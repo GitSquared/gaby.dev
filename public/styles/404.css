@@ -1,6 +1,16 @@
 html {
 	display: flex;
 	min-height: 100vh;
+	color-scheme: dark;
+	--background: black;
+	--text: white;
+}
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+		--background: white;
+		--text: black;
+	}
 }
 body {
 	margin: auto;
@@ -17,12 +27,12 @@ body {
 		Droid Sans,
 		Helvetica Neue,
 		sans-serif;
-	background: black;
-	color: white;
+	background: var(--background);
+	color: var(--text);
 }
 
 a {
-	color: white;
+	color: var(--text);
 	text-decoration: underline;
 	opacity: 0.5;
 	transition: opacity 0.2s ease-out;
@@ -117,8 +127,8 @@ h1::after {
 	left: 2px;
 	text-shadow: -1px 0 red;
 	top: 0;
-	color: white;
-	background: black;
+	color: var(--text);
+	background: var(--background);
 	overflow: hidden;
 	animation: noise-anim 2s infinite linear alternate-reverse;
 }
@@ -194,8 +204,8 @@ h1::before {
 	left: -2px;
 	text-shadow: 1px 0 blue;
 	top: 0;
-	color: white;
-	background: black;
+	color: var(--text);
+	background: var(--background);
 	overflow: hidden;
 	animation: noise-anim-2 15s infinite linear alternate-reverse;
 }
